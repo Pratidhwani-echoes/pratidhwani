@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}Pratidhwani{% endblock %}
+
+{% block content %}
+{% if not met %}
+<section class="welcome">
+  <div class="welcome-card glass">
+    <div>
+      {% if mascot_ready %}
+      <img class="mascot" src="{{ url_for('static', filename='img/ananta-wave.webp') }}" width="495" height="723" alt="Ananta, the astronaut who keeps this observatory">
+      {% else %}
+      <div class="mascot-slot"><span><i class="bi bi-broadcast" style="display:block; font-size:1.5rem; margin-bottom:8px;"></i>Companion signal pending</span></div>
+      {% endif %}
+    </div>
+    <div>
+      <p class="eyebrow"><i class="bi bi-broadcast-pin"></i> Pratidhwani · incoming transmission</p>
+      <h2>Hi, I'm Ananta.</h2>
+      <p>{{ companion.welcome }}</p>
+      <p class="mb-4" style="font-size: 0.9rem;">
+        <span style="color: var(--accent);"><i class="bi bi-star-fill"></i> {{ mission_total }} stars</span> are dark.
+        Read what each machine has to say, answer five questions, and light it back up.
+      </p>
+      <form method="post" action="{{ url_for('begin') }}">
+        <button class="btn-primary" type="submit">Step inside <i class="bi bi-arrow-right"></i></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+{% else %}
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow"><i class="bi bi-compass"></i> Field guide to unfinished missions</p>
+    <h1 class="display">Some missions<br>never got their ending.</h1>
+    <p class="lede">
+      Six pieces of hardware were designed, built and tested, then set aside for reasons
+      that had little to do with engineering. Open a star and let the machine tell you
+      what it was for.
+    </p>
+    <div class="hero-meta">
+      <span class="pill"><i class="bi bi-star-fill"></i> {{ sky.done_count }} of {{ sky.total }} stars lit</span>
+      <a class="btn-ghost" href="#constellation">Choose a star <i class="bi bi-arrow-down-right"></i></a>
+    </div>
+  </div>
+
+  <div class="constellation-panel glass" id="constellation">
+    <svg class="constellation{{ ' all-done' if sky.all_done }}" viewBox="0 0 1000 600" role="group" aria-label="Interactable constellation of unfinished missions">
+      <g class="links">
+        {% for link in sky.links %}
+        <line x1="{{ link.x1 }}" y1="{{ link.y1 }}" x2="{{ link.x2 }}" y2="{{ link.y2 }}" class="{{ 'lit' if link.lit }}"></line>
+        {% endfor %}
+      </g>
+      <g class="stars">
+        {% for star in sky.stars %}
+        <a class="star{{ ' is-done' if star.done }}{{ ' is-new' if star.slug == newcomer }}"
+           href="{{ url_for('artifact_start', slug=star.slug) }}"
+           style="--accent: {{ star.accent }}; --delay: {{ star.delay }}s;"
+           aria-label="{{ star.name }}: {{ star.artifact }}">
+          <title>{{ star.name }} — {{ star.artifact }}</title>
+          <circle class="star-halo" cx="{{ star.x }}" cy="{{ star.y }}" r="34"></circle>
+          <circle class="star-ring" cx="{{ star.x }}" cy="{{ star.y }}" r="15"></circle>
+          <circle class="star-core" cx="{{ star.x }}" cy="{{ star.y }}" r="{{ star.r }}"></circle>
+          <text class="star-label" x="{{ star.x }}" y="{{ star.y + 40 }}">{{ star.name }}</text>
+        </a>
+        {% endfor %}
+      </g>
+    </svg>
+    <div class="panel-caption">
+      <span><i class="bi bi-hand-index-thumb"></i> Tap a star to begin</span>
+      <span>{{ sky.done_count }} / {{ sky.total }}</span>
+    </div>
+  </div>
+</section>
+
+{% if all_done %}
+<div class="banner">
+  <img class="banner-mascot" src="{{ url_for('static', filename='img/ananta-drift.webp') }}" width="481" height="731" alt="">
+  <i class="bi bi-stars"></i>
+  <span>{{ companion.complete }} <a href="{{ url_for('artifact_start', slug=missions[0].slug) }}" style="text-decoration: underline;">Revisit an artifact</a> whenever you like.</span>
+</div>
+{% endif %}
+
+<section class="glass" style="padding: 20px 24px; margin-top: 6px;">
+  <div style="display: flex; gap: 22px; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+    <span style="color: var(--faint); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">How it works</span>
+    <span style="color: var(--muted); font-size: 0.88rem;"><i class="bi bi-book" style="color: var(--accent);"></i> Read the artifact's story</span>
+    <span style="color: var(--muted); font-size: 0.88rem;"><i class="bi bi-patch-question" style="color: var(--accent);"></i> Answer five questions</span>
+    <span style="color: var(--muted); font-size: 0.88rem;"><i class="bi bi-star" style="color: var(--accent);"></i> Four right lights the star</span>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

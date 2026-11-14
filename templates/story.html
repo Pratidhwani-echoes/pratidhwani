@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}{{ mission.name }} · Pratidhwani{% endblock %}
+
+{% block content %}
+<section class="story-grid">
+  <aside class="story-aside">
+    <a class="back-link" href="{{ url_for('landing') }}"><i class="bi bi-arrow-left"></i> The constellation</a>
+    <div>
+      <p class="eyebrow"><i class="bi bi-broadcast"></i> {{ mission.era }}</p>
+      <h1 class="aside-title">{{ mission.name }}</h1>
+      <p class="aside-artifact">{{ mission.artifact }}</p>
+    </div>
+
+    <div>
+      <p class="aside-era">Page {{ number }} of {{ total }}</p>
+      <ol class="page-dots" aria-label="Story progress">
+        {% for page_item in mission.pages %}
+        <li class="{{ 'is-current' if loop.index == number else ('is-read' if loop.index < number else '') }}"></li>
+        {% endfor %}
+      </ol>
+      <div class="progress-track" style="margin-top: 14px;">
+        <div class="progress-fill" style="width: {{ (100 * number / total)|round|int }}%;"></div>
+      </div>
+    </div>
+
+    <div class="companion">
+      {% if mascot_ready %}
+      <img src="{{ url_for('static', filename='img/ananta-stance.webp') }}" width="471" height="723" alt="Ananta, listening">
+      {% else %}
+      <span class="companion-fallback"></span>
+      {% endif %}
+      <p class="companion-bubble">{{ companion_line }}</p>
+    </div>
+
+    {% if completed %}
+    <p class="pill" style="align-self: flex-start;"><i class="bi bi-star-fill"></i> Star already lit</p>
+    {% endif %}
+  </aside>
+
+  <article class="story-card glass">
+    <p class="kicker">{% if page.overview %}Overview{% else %}The artifact speaks · {{ mission.artifact }}{% endif %}</p>
+    <h2 class="story-title">{{ page.title }}</h2>
+
+    <div class="story-body">
+      {% for paragraph in page.body %}
+      <p{% if paragraph.startswith('|') %} class="pull"{% endif %}>{{ paragraph[1:].lstrip() if paragraph.startswith('|') else paragraph }}</p>
+      {% endfor %}
+    </div>
+
+    {% if page.facts %}
+    <div class="facts">
+      {% for label, value in page.facts %}
+      <div class="fact">
+        <span class="fact-label">{{ label }}</span>
+        <span class="fact-value">{{ value }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="story-actions">
+      <span class="story-hint">{% if is_last %}{{ companion.quiz }}{% else %}Narration continues on the next page.{% endif %}</span>
+      {% if is_last %}
+      <a class="btn-primary" href="{{ url_for('artifact_quiz', slug=mission.slug) }}">Answer five questions <i class="bi bi-arrow-right"></i></a>
+      {% else %}
+      <a class="btn-primary" href="{{ url_for('artifact_page', slug=mission.slug, page_number=number + 1) }}">Next <i class="bi bi-arrow-right"></i></a>
+      {% endif %}
+    </div>
+  </article>
+</section>
+{% endblock %}

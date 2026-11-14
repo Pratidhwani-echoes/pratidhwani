@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Quiz · {{ mission.name }}{% endblock %}
+
+{% block content %}
+<section class="quiz-card glass">
+  <div class="quiz-head">
+    <p class="eyebrow" style="margin: 0;"><i class="bi bi-patch-question"></i> Five questions</p>
+    <a class="back-link" href="{{ url_for('artifact_page', slug=mission.slug, page_number=mission.pages|length) }}">
+      <i class="bi bi-arrow-left"></i> Back to the last page
+    </a>
+  </div>
+  <h1 style="font-size: clamp(1.7rem, 3vw, 2.3rem); margin: 6px 0 8px;">{{ mission.name }}</h1>
+  <p style="color: var(--muted); max-width: 62ch;">
+    Four correct answers out of five lights the star. Nothing is timed, and you can retake this as often as you need.
+    {% if completed %}<span style="color: var(--accent);">This star is already lit.</span>{% endif %}
+  </p>
+
+  <form method="post" action="{{ url_for('artifact_quiz_submit', slug=mission.slug) }}">
+    {% for question in mission.quiz %}
+    {% set question_index = loop.index0 %}
+    <fieldset class="question">
+      <legend class="question-legend">
+        <span class="question-index">{{ "%02d"|format(loop.index) }}</span>
+        <span>{{ question.q }}</span>
+      </legend>
+      <div class="options">
+        {% for option in question.options %}
+        <label class="option">
+          <input type="radio" name="q{{ question_index }}" value="{{ loop.index0 }}" required>
+          <span class="option-mark" aria-hidden="true"></span>
+          <span>{{ option }}</span>
+        </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+    {% endfor %}
+
+    <div class="quiz-actions">
+      <span class="story-hint">{{ companion.quiz }}</span>
+      <button class="btn-primary" type="submit">Check my answers <i class="bi bi-check2"></i></button>
+    </div>
+  </form>
+</section>
+{% endblock %}

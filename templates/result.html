@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}Result · {{ mission.name }}{% endblock %}
+
+{% block content %}
+<section class="result-card glass">
+  <div class="result-head">
+    <div class="score-ring" style="--score: {{ (100 * score / total)|round|int }};" role="img" aria-label="{{ score }} of {{ total }} correct">
+      <span>{{ score }}<small>of {{ total }}</small></span>
+    </div>
+    <div>
+      <p class="eyebrow" style="margin-bottom: 8px;"><i class="bi bi-broadcast"></i> {{ mission.name }} · {{ mission.artifact }}</p>
+      {% if passed %}
+      <h1>{% if newly_added %}A new star.{% else %}Star confirmed.{% endif %}</h1>
+      <p>{{ companion.pass }} {{ mission.name }} is now part of the constellation.</p>
+      {% else %}
+      <h1>Not yet.</h1>
+      <p>{{ companion.fail }}</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <ul class="review">
+    {% for item in results %}
+    <li class="review-item {{ 'is-right' if item.correct else 'is-wrong' }}">
+      <p class="review-question">
+        <i class="bi {{ 'bi-check2-circle' if item.correct else 'bi-x-circle' }}"></i>
+        <span>{{ item.question }}</span>
+      </p>
+      <p class="review-answer">
+        Your answer:
+        <strong>{{ item.options[item.picked] if item.picked is not none else 'No answer' }}</strong>
+        {% if not item.correct %} · Correct answer: <strong>{{ item.options[item.answer] }}</strong>{% endif %}
+      </p>
+      <p class="review-why">{{ item.why }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <div class="quiz-actions">
+    <a class="btn-ghost" href="{{ url_for('artifact_page', slug=mission.slug, page_number=1) }}">
+      <i class="bi bi-book"></i> Read the story again
+    </a>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      {% if not passed %}
+      <a class="btn-ghost" href="{{ url_for('artifact_quiz', slug=mission.slug) }}">Retake quiz</a>
+      {% endif %}
+      <a class="btn-primary" href="{{ celebrate }}">
+        Return to the constellation <i class="bi bi-stars"></i>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}
