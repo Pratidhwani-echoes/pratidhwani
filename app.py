@@ -33,9 +33,9 @@ COMPANION = {
         "That's the whole story. Ready for five questions?",
     ],
     "quiz": "No pressure. Four right and this star joins the sky.",
-    "pass": "There it is. Look up - your star is lit.",
-    "fail": "Close. Walk back through the story and try again; the star will wait.",
-    "complete": "All six are lit. This is what the sky would have looked like if they had flown.",
+    "pass": "You did it! Look up - your star is lit.",
+    "fail": "That was close. Walk back through the story and try again; the star will wait.",
+    "complete": "All six are lit! This is what the sky would have looked like if they had flown.",
 }
 
 app = Flask(__name__)
@@ -61,6 +61,7 @@ def completed_count():
 def shared_context():
     return {
         "missions": MISSIONS,
+        "missions_by_slug": MISSIONS_BY_SLUG,
         "mascot_ready": MASCOT_FILE.exists(),
         "companion": COMPANION,
         "pass_mark": PASS_MARK,

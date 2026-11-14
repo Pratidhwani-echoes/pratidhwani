@@ -14,23 +14,29 @@
     </div>
     <div>
       <p class="eyebrow"><i class="bi bi-broadcast-pin"></i> Pratidhwani · incoming transmission</p>
-      <h2>Hi, I'm Ananta.</h2>
+      <h2>Hi explorer, I'm Ananta.</h2>
       <p>{{ companion.welcome }}</p>
       <p class="mb-4" style="font-size: 0.9rem;">
         <span style="color: var(--accent);"><i class="bi bi-star-fill"></i> {{ mission_total }} stars</span> are dark.
-        Read what each machine has to say, answer five questions, and light it back up.
+        You must read what each machine has to say, answer five questions, and light it back up.
       </p>
       <form method="post" action="{{ url_for('begin') }}">
-        <button class="btn-primary" type="submit">Step inside <i class="bi bi-arrow-right"></i></button>
+        <button class="btn-primary" type="submit">Let's begin <i class="bi bi-arrow-right"></i></button>
       </form>
     </div>
   </div>
 </section>
 
 {% else %}
+{% if newcomer %}
+<div class="new-star-toast" role="status" aria-live="polite">
+  <span class="toast-sparkle"><i class="bi bi-stars"></i></span>
+  <span>A new star has ignited: <strong>{{ missions_by_slug[newcomer].name }}</strong> is now shining in the sky!</span>
+</div>
+{% endif %}
+
 <section class="hero">
   <div class="hero-copy">
-    <p class="eyebrow"><i class="bi bi-compass"></i> Field guide to unfinished missions</p>
     <h1 class="display">Some missions<br>never got their ending.</h1>
     <p class="lede">
       Six pieces of hardware were designed, built and tested, then set aside for reasons
@@ -39,7 +45,13 @@
     </p>
     <div class="hero-meta">
       <span class="pill"><i class="bi bi-star-fill"></i> {{ sky.done_count }} of {{ sky.total }} stars lit</span>
-      <a class="btn-ghost" href="#constellation">Choose a star <i class="bi bi-arrow-down-right"></i></a>
+    </div>
+
+    <div class="hero-mascot-drift">
+      <picture>
+        <source srcset="{{ url_for('static', filename='img/ananta-drift.webp') }}" type="image/webp">
+        <img class="mascot-drift-img" src="{{ url_for('static', filename='img/Ananta-drift.svg') }}" width="1056" height="576" alt="Ananta drifting beside the constellation">
+      </picture>
     </div>
   </div>
 
@@ -55,9 +67,23 @@
         <a class="star{{ ' is-done' if star.done }}{{ ' is-new' if star.slug == newcomer }}"
            href="{{ url_for('artifact_start', slug=star.slug) }}"
            style="--accent: {{ star.accent }}; --delay: {{ star.delay }}s;"
-           aria-label="{{ star.name }}: {{ star.artifact }}">
+           aria-label="{{ star.name }}: {{ star.artifact }}"
+           data-slug="{{ star.slug }}"
+           data-cx="{{ star.x }}"
+           data-cy="{{ star.y }}">
           <title>{{ star.name }} — {{ star.artifact }}</title>
+          <!-- Star addition burst & shockwave elements -->
+          <circle class="star-nova" cx="{{ star.x }}" cy="{{ star.y }}" r="36" aria-hidden="true"></circle>
+          <circle class="star-burst-ring burst-1" cx="{{ star.x }}" cy="{{ star.y }}" r="48" aria-hidden="true"></circle>
+          <circle class="star-burst-ring burst-2" cx="{{ star.x }}" cy="{{ star.y }}" r="72" aria-hidden="true"></circle>
+          <!-- Halos and sparkles -->
           <circle class="star-halo" cx="{{ star.x }}" cy="{{ star.y }}" r="34"></circle>
+          <g class="star-sparkles" aria-hidden="true">
+            <line class="star-spike spike-h" x1="{{ star.x - 20 }}" y1="{{ star.y }}" x2="{{ star.x + 20 }}" y2="{{ star.y }}"></line>
+            <line class="star-spike spike-v" x1="{{ star.x }}" y1="{{ star.y - 20 }}" x2="{{ star.x }}" y2="{{ star.y + 20 }}"></line>
+            <line class="star-spike spike-d1" x1="{{ star.x - 9 }}" y1="{{ star.y - 9 }}" x2="{{ star.x + 9 }}" y2="{{ star.y + 9 }}"></line>
+            <line class="star-spike spike-d2" x1="{{ star.x - 9 }}" y1="{{ star.y + 9 }}" x2="{{ star.x + 9 }}" y2="{{ star.y - 9 }}"></line>
+          </g>
           <circle class="star-ring" cx="{{ star.x }}" cy="{{ star.y }}" r="15"></circle>
           <circle class="star-core" cx="{{ star.x }}" cy="{{ star.y }}" r="{{ star.r }}"></circle>
           <text class="star-label" x="{{ star.x }}" y="{{ star.y + 40 }}">{{ star.name }}</text>

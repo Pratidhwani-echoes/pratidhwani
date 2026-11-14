@@ -4,13 +4,13 @@
 {% block content %}
 <section class="result-card glass">
   <div class="result-head">
-    <div class="score-ring" style="--score: {{ (100 * score / total)|round|int }};" role="img" aria-label="{{ score }} of {{ total }} correct">
+    <div class="score-ring{{ ' is-new-burst' if newly_added }}" style="--score: {{ (100 * score / total)|round|int }};" role="img" aria-label="{{ score }} of {{ total }} correct">
       <span>{{ score }}<small>of {{ total }}</small></span>
     </div>
     <div>
       <p class="eyebrow" style="margin-bottom: 8px;"><i class="bi bi-broadcast"></i> {{ mission.name }} · {{ mission.artifact }}</p>
       {% if passed %}
-      <h1>{% if newly_added %}A new star.{% else %}Star confirmed.{% endif %}</h1>
+      <h1 class="{{ 'text-new-star' if newly_added }}">{% if newly_added %}<i class="bi bi-stars" style="color: var(--accent);"></i> A new star is lit!{% else %}Star confirmed.{% endif %}</h1>
       <p>{{ companion.pass }} {{ mission.name }} is now part of the constellation.</p>
       {% else %}
       <h1>Not yet.</h1>
@@ -44,7 +44,7 @@
       {% if not passed %}
       <a class="btn-ghost" href="{{ url_for('artifact_quiz', slug=mission.slug) }}">Retake quiz</a>
       {% endif %}
-      <a class="btn-primary" href="{{ celebrate }}">
+      <a class="btn-primary{{ ' btn-celebrate' if newly_added }}" href="{{ celebrate }}">
         Return to the constellation <i class="bi bi-stars"></i>
       </a>
     </div>

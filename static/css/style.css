@@ -3,24 +3,143 @@
    A glass-morphism observatory. Colour comes from each mission's accent.
    ========================================================================== */
 
+/* ------------------------------------------------------------------- fonts */
+@font-face {
+  font-family: 'Outfit';
+  src: url('../fonts/Outfit/Outfit-VariableFont_wght.ttf') format('truetype-variations'),
+       url('../fonts/Outfit/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../fonts/Outfit/static/Outfit-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../fonts/Outfit/static/Outfit-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../fonts/Outfit/static/Outfit-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('../fonts/Outfit/static/Outfit-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype-variations'),
+       url('../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../fonts/Space_Grotesk/static/SpaceGrotesk-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../fonts/Space_Grotesk/static/SpaceGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../fonts/Space_Grotesk/static/SpaceGrotesk-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../fonts/Space_Grotesk/static/SpaceGrotesk-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../fonts/Nunito/Nunito-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../fonts/Nunito/Nunito-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../fonts/Nunito/Nunito-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('../fonts/Nunito/Nunito-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------- variables */
 :root {
   --bg: #05060c;
   --bg-soft: #0a0d18;
   --ink: #eef2ff;
   --muted: #9aa6c4;
   --faint: #6f7c9b;
-  --line: rgba(255, 255, 255, 0.12);
-  --line-soft: rgba(255, 255, 255, 0.07);
-  --glass: rgba(255, 255, 255, 0.055);
-  --glass-high: rgba(255, 255, 255, 0.1);
+  --line: rgba(255, 255, 255, 0.11);
+  --line-soft: rgba(255, 255, 255, 0.06);
+  --glass: rgba(255, 255, 255, 0.02);
+  --glass-high: rgba(255, 255, 255, 0.06);
   --accent: #ffd9a3;
   --accent-soft: rgba(255, 217, 163, 0.16);
   --radius: 26px;
   --mx: 0;
   --my: 0;
   --shadow: 0 30px 80px rgba(2, 5, 16, 0.55);
-  --serif: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Space Grotesk", system-ui, -apple-system, sans-serif;
+  --font-body: "Outfit", system-ui, -apple-system, sans-serif;
+  --font-mono: "Nunito", "Courier New", Courier, monospace;
+  --serif: var(--font-heading);
+  --sans: var(--font-body);
 }
 
 * {
@@ -54,7 +173,7 @@ body {
     linear-gradient(180deg, #05060c 0%, #070a14 45%, #05070f 100%);
   background-attachment: fixed;
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.65;
   letter-spacing: 0.005em;
@@ -135,6 +254,72 @@ a {
   }
 }
 
+/* ---------------------------------------------------------- shooting stars */
+
+.shooting-stars-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 6px 2px #ffffff,
+              0 0 14px 4px rgba(200, 230, 255, 0.95);
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* The trailing luminous tail extending backwards into space */
+.shooting-star::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--tail-length, 140px);
+  height: 2px;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(220, 240, 255, 0.85) 15%, rgba(180, 215, 255, 0.35) 50%, transparent 100%);
+  border-radius: 999px;
+  filter: drop-shadow(0 0 6px rgba(180, 215, 255, 0.8));
+  pointer-events: none;
+}
+
+/* Gold variant matching the site's warm accent */
+.shooting-star.is-gold {
+  box-shadow: 0 0 6px 2px #ffffff,
+              0 0 14px 4px rgba(255, 215, 140, 0.95);
+}
+
+.shooting-star.is-gold::before {
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255, 230, 180, 0.85) 15%, rgba(255, 205, 130, 0.35) 50%, transparent 100%);
+  filter: drop-shadow(0 0 6px rgba(255, 215, 140, 0.8));
+}
+
+@keyframes shooting-star-streak {
+  0% {
+    opacity: 0;
+    transform: rotate(var(--angle, 315deg)) translateX(0) scale(0.6);
+  }
+  12% {
+    opacity: 1;
+    transform: rotate(var(--angle, 315deg)) translateX(calc(var(--travel, -500px) * 0.12)) scale(1);
+  }
+  75% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(var(--angle, 315deg)) translateX(var(--travel, -500px)) scale(0.3);
+  }
+}
+
 /* ------------------------------------------------------------------ layout */
 
 .shell {
@@ -157,13 +342,14 @@ main {
   padding-bottom: 56px;
 }
 
+/* Higher transparency for glassy elements to let the starfield & shooting stars show through */
 .glass {
-  background: linear-gradient(155deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.025));
-  border: 1px solid var(--line);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.035));
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: var(--radius);
-  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.16);
-  backdrop-filter: blur(22px) saturate(150%);
-  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px) saturate(130%);
+  -webkit-backdrop-filter: blur(12px) saturate(130%);
 }
 
 /* ----------------------------------------------------------------- top bar */
@@ -180,8 +366,9 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  font-family: var(--font-mono);
   font-size: 0.82rem;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -193,7 +380,7 @@ main {
   height: 34px;
   border-radius: 50%;
   border: 1px solid var(--line);
-  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0.02) 60%);
+  background: radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.02) 60%);
   color: #fff;
   font-size: 0.9rem;
   box-shadow: 0 0 18px rgba(160, 186, 255, 0.35);
@@ -212,10 +399,11 @@ main {
   padding: 8px 15px;
   border-radius: 999px;
   border: 1px solid var(--line-soft);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.035);
   color: var(--muted);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
   white-space: nowrap;
 }
 
@@ -232,8 +420,9 @@ main {
   border: 1px solid var(--line-soft);
   background: transparent;
   color: var(--muted);
-  font: inherit;
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.04em;
   cursor: pointer;
   transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
@@ -245,12 +434,35 @@ main {
   background: rgba(255, 255, 255, 0.06);
 }
 
+.audio-toggle {
+  transition: all 0.25s ease;
+}
+
+.audio-toggle.is-playing {
+  border-color: rgba(255, 217, 163, 0.45);
+  background: rgba(255, 217, 163, 0.08);
+  color: var(--ink);
+  box-shadow: 0 0 14px rgba(255, 217, 163, 0.22);
+}
+
+.audio-toggle.is-playing i {
+  color: var(--accent);
+  display: inline-block;
+  animation: audio-note-beat 2s ease-in-out infinite alternate;
+}
+
+@keyframes audio-note-beat {
+  0% { transform: scale(1); filter: drop-shadow(0 0 2px var(--accent)); }
+  100% { transform: scale(1.18); filter: drop-shadow(0 0 8px var(--accent)); }
+}
+
 /* ------------------------------------------------------------------ typography */
 
 .eyebrow {
   margin: 0 0 14px;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--faint);
   display: flex;
@@ -264,25 +476,29 @@ main {
 
 .display {
   margin: 0;
-  font-family: var(--serif);
-  font-weight: 500;
+  font-family: var(--font-heading);
+  font-weight: 600;
   font-size: clamp(2.4rem, 5.4vw, 4.1rem);
-  line-height: 1.04;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
 }
 
 .lede {
-  max-width: 46ch;
+  max-width: 48ch;
   color: var(--muted);
-  font-size: 1.02rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
 }
 
 h1,
 h2,
-h3 {
-  font-family: var(--serif);
-  font-weight: 500;
-  letter-spacing: -0.01em;
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.015em;
 }
 
 /* ------------------------------------------------------------------- buttons */
@@ -295,9 +511,9 @@ h3 {
   padding: 13px 22px;
   border-radius: 999px;
   border: 1px solid transparent;
-  font: inherit;
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
 }
@@ -305,7 +521,7 @@ h3 {
 .btn-primary {
   background: linear-gradient(140deg, #fff7ea, #ffd9a3);
   color: #221707;
-  font-weight: 600;
+  font-weight: 700;
   box-shadow: 0 14px 34px rgba(255, 203, 132, 0.22);
 }
 
@@ -317,14 +533,14 @@ h3 {
 
 .btn-ghost {
   border-color: var(--line);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--ink);
 }
 
 .btn-ghost:hover,
 .btn-ghost:focus-visible {
-  background: rgba(255, 255, 255, 0.09);
-  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 :focus-visible {
@@ -336,14 +552,19 @@ h3 {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
   gap: clamp(24px, 4vw, 54px);
   align-items: center;
-  padding: clamp(28px, 6vh, 68px) 0 40px;
+  padding: clamp(20px, 4vh, 48px) 0 36px;
+}
+
+.hero-copy {
+  display: flex;
+  flex-direction: column;
 }
 
 .hero-copy .lede {
-  margin: 20px 0 26px;
+  margin: 18px 0 22px;
 }
 
 .hero-meta {
@@ -351,6 +572,24 @@ h3 {
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
+}
+
+.hero-mascot-drift {
+  margin-top: clamp(14px, 2.5vh, 26px);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.hero-mascot-drift .mascot-drift-img {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 42px rgba(120, 160, 255, 0.35));
+  animation: mascot-zero-gravity 9s ease-in-out infinite;
+  transform-origin: center;
 }
 
 /* ------------------------------------------------------------ constellation */
@@ -366,12 +605,12 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 42%, rgba(148, 172, 255, 0.14), transparent 62%);
+  background: radial-gradient(circle at 50% 42%, rgba(148, 172, 255, 0.07), transparent 62%);
   pointer-events: none;
 }
 
 .constellation-panel:hover {
-  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 0 60px rgba(126, 154, 255, 0.12);
+  box-shadow: var(--shadow), inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 0 60px rgba(126, 154, 255, 0.12);
 }
 
 .constellation {
@@ -411,11 +650,15 @@ h3 {
   fill: currentColor;
   opacity: 0;
   transition: opacity 0.5s ease;
+  transform-origin: center;
+  transform-box: fill-box;
 }
 
 .star-core {
   fill: rgba(226, 235, 255, 0.32);
   transition: fill 0.5s ease, opacity 0.5s ease;
+  transform-origin: center;
+  transform-box: fill-box;
 }
 
 .star-ring {
@@ -429,9 +672,9 @@ h3 {
 
 .star-label {
   fill: rgba(210, 222, 255, 0.55);
-  font-family: var(--sans);
-  font-size: 13px;
-  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.08em;
   text-anchor: middle;
   transition: fill 0.3s ease, opacity 0.3s ease;
 }
@@ -451,17 +694,53 @@ h3 {
   outline: none;
 }
 
+/* ------------------------------------------ Collected Stars: Nicer & Twinkling */
+
+.star-sparkles {
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: center;
+  transform-box: fill-box;
+  transition: opacity 0.6s ease;
+}
+
 .star.is-done {
   color: var(--accent);
 }
 
 .star.is-done .star-halo {
-  opacity: 0.18;
+  opacity: 0.32;
+  fill: var(--accent);
+  animation: collected-halo-twinkle 4s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
 }
 
 .star.is-done .star-core {
-  fill: #fff;
-  filter: drop-shadow(0 0 8px var(--accent)) drop-shadow(0 0 18px var(--accent));
+  fill: #ffffff;
+  filter: drop-shadow(0 0 5px #ffffff)
+          drop-shadow(0 0 12px var(--accent))
+          drop-shadow(0 0 25px var(--accent));
+  animation: collected-star-twinkle 3.2s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.star.is-done .star-sparkles {
+  opacity: 0.88;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px var(--accent));
+  animation: collected-sparkles-twinkle 3.2s ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+.star-spike {
+  stroke-width: 1.2px;
+}
+
+.star-spike.spike-d1,
+.star-spike.spike-d2 {
+  stroke-width: 0.85px;
+  opacity: 0.7;
 }
 
 .star.is-done .star-ring {
@@ -469,27 +748,280 @@ h3 {
 }
 
 .star.is-done .star-label {
-  fill: rgba(255, 245, 228, 0.85);
+  fill: #ffffff;
+  font-weight: 700;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
+}
+
+.star.is-done:hover .star-core {
+  filter: drop-shadow(0 0 8px #ffffff)
+          drop-shadow(0 0 18px var(--accent))
+          drop-shadow(0 0 38px var(--accent));
+  transform: scale(1.3);
+}
+
+.star.is-done:hover .star-halo {
+  opacity: 0.55;
+  transform: scale(1.25);
+}
+
+.star.is-done:hover .star-sparkles {
+  opacity: 1;
+  transform: scale(1.3) rotate(22deg);
+}
+
+@keyframes collected-star-twinkle {
+  0%, 100% {
+    transform: scale(0.92);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 4px #ffffff) drop-shadow(0 0 10px var(--accent)) drop-shadow(0 0 20px var(--accent));
+  }
+  30% {
+    transform: scale(1.22);
+    opacity: 1;
+    filter: drop-shadow(0 0 8px #ffffff) drop-shadow(0 0 18px var(--accent)) drop-shadow(0 0 35px var(--accent));
+  }
+  55% {
+    transform: scale(0.85);
+    opacity: 0.7;
+    filter: drop-shadow(0 0 3px #ffffff) drop-shadow(0 0 7px var(--accent)) drop-shadow(0 0 14px var(--accent));
+  }
+  80% {
+    transform: scale(1.12);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 6px #ffffff) drop-shadow(0 0 14px var(--accent)) drop-shadow(0 0 28px var(--accent));
+  }
+}
+
+@keyframes collected-halo-twinkle {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 0.26;
+    transform: scale(1.3);
+  }
+}
+
+@keyframes collected-sparkles-twinkle {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.88) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25) rotate(16deg);
+  }
+}
+
+/* --------------------------------------------- Bright Star Addition Animation */
+
+.star-nova,
+.star-burst-ring {
+  opacity: 0;
+  pointer-events: none;
+  transform-origin: center;
+  transform-box: fill-box;
 }
 
 .star.is-new {
-  animation: star-birth 2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: star-birth-appear 2.8s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-@keyframes star-birth {
+.star.is-new .star-core {
+  animation: star-birth-core 2.4s cubic-bezier(0.12, 0.9, 0.25, 1) both,
+             collected-star-twinkle 3.2s ease-in-out 2.4s infinite;
+}
+
+.star.is-new .star-nova {
+  fill: #ffffff;
+  animation: star-nova-flash 1.8s ease-out forwards;
+}
+
+.star.is-new .star-burst-ring.burst-1 {
+  fill: none;
+  stroke: #ffffff;
+  animation: star-shockwave-1 1.8s cubic-bezier(0.1, 0.8, 0.25, 1) forwards;
+}
+
+.star.is-new .star-burst-ring.burst-2 {
+  fill: none;
+  stroke: var(--accent);
+  animation: star-shockwave-2 2.2s cubic-bezier(0.1, 0.8, 0.25, 1) 0.22s forwards;
+}
+
+@keyframes star-birth-appear {
   0% {
-    transform: scale(0.2);
     opacity: 0;
   }
-  55% {
-    transform: scale(1.55);
+  15% {
     opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes star-birth-core {
+  0% {
+    transform: scale(0.05);
+    opacity: 0;
+    fill: #ffffff;
+    filter: drop-shadow(0 0 0px #fff);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(3.2);
+    fill: #ffffff;
+    filter: drop-shadow(0 0 25px #ffffff)
+            drop-shadow(0 0 55px var(--accent))
+            drop-shadow(0 0 95px var(--accent));
+  }
+  55% {
+    transform: scale(1.35);
+    filter: drop-shadow(0 0 16px #ffffff)
+            drop-shadow(0 0 35px var(--accent))
+            drop-shadow(0 0 60px var(--accent));
   }
   100% {
     transform: scale(1);
     opacity: 1;
+    fill: #ffffff;
+    filter: drop-shadow(0 0 5px #ffffff)
+            drop-shadow(0 0 12px var(--accent))
+            drop-shadow(0 0 25px var(--accent));
   }
 }
+
+@keyframes star-nova-flash {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  22% {
+    opacity: 1;
+    transform: scale(2.4);
+    filter: drop-shadow(0 0 30px #ffffff) drop-shadow(0 0 65px var(--accent));
+  }
+  100% {
+    opacity: 0;
+    transform: scale(4.2);
+    filter: drop-shadow(0 0 80px var(--accent));
+  }
+}
+
+@keyframes star-shockwave-1 {
+  0% {
+    transform: scale(0.1);
+    stroke-width: 4px;
+    opacity: 1;
+    filter: drop-shadow(0 0 12px #ffffff);
+  }
+  50% {
+    stroke: var(--accent);
+    stroke-width: 2.5px;
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.4);
+    stroke-width: 0.5px;
+    opacity: 0;
+  }
+}
+
+@keyframes star-shockwave-2 {
+  0% {
+    transform: scale(0.1);
+    stroke-width: 3px;
+    opacity: 1;
+    filter: drop-shadow(0 0 10px var(--accent));
+  }
+  60% {
+    opacity: 0.8;
+    stroke-width: 2px;
+  }
+  100% {
+    transform: scale(3);
+    stroke-width: 0.4px;
+    opacity: 0;
+  }
+}
+
+/* Burst particle sparkles overlay */
+.star-burst-particles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.burst-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--pcolor, #ffffff);
+  box-shadow: 0 0 8px var(--pcolor, #ffffff), 0 0 16px var(--pcolor, #ffffff);
+  pointer-events: none;
+  transform-origin: center;
+}
+
+@keyframes particle-burst-fly {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1.5);
+  }
+  55% {
+    opacity: 0.95;
+    transform: translate3d(calc(var(--px) * 0.7), calc(var(--py) * 0.7), 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--px), var(--py), 0) scale(0.1);
+  }
+}
+
+/* New star announcement toast */
+.new-star-toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  margin: 10px auto 20px;
+  max-width: fit-content;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 220, 160, 0.4);
+  background: linear-gradient(135deg, rgba(255, 220, 160, 0.16), rgba(255, 255, 255, 0.03));
+  box-shadow: 0 8px 30px rgba(255, 210, 140, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  color: #fff6e8;
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  letter-spacing: 0.03em;
+  animation: toast-glow 2.5s ease-in-out infinite alternate;
+}
+
+.toast-sparkle {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #1a1205;
+  font-size: 1rem;
+  box-shadow: 0 0 16px var(--accent);
+  animation: floaty 4s ease-in-out infinite;
+}
+
+@keyframes toast-glow {
+  0% {
+    box-shadow: 0 8px 24px rgba(255, 210, 140, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 12px 40px rgba(255, 220, 160, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  }
+}
+
+/* ------------------------------------------------ Constellation completion */
 
 .constellation.all-done .links line {
   stroke: rgba(226, 236, 255, 0.75);
@@ -511,39 +1043,6 @@ h3 {
   }
 }
 
-.constellation.all-done .star.is-done .star-core {
-  animation: star-twinkle 3.6s ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
-}
-
-.constellation.all-done .star.is-done .star-halo {
-  opacity: 0.3;
-  animation: halo-breath 4.6s ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
-}
-
-@keyframes star-twinkle {
-  0%,
-  100% {
-    opacity: 0.85;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-@keyframes halo-breath {
-  0%,
-  100% {
-    opacity: 0.18;
-    transform: scale(0.9);
-  }
-  50% {
-    opacity: 0.42;
-    transform: scale(1.15);
-  }
-}
-
 .panel-caption {
   display: flex;
   align-items: center;
@@ -552,8 +1051,9 @@ h3 {
   padding: 10px 14px 14px;
   border-top: 1px solid var(--line-soft);
   color: var(--faint);
-  font-size: 0.76rem;
-  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
 }
 
 .panel-caption span {
@@ -604,17 +1104,19 @@ h3 {
   position: absolute;
   inset: auto -30% -70% -30%;
   height: 60%;
-  background: radial-gradient(circle, rgba(255, 213, 158, 0.16), transparent 65%);
+  background: radial-gradient(circle, rgba(255, 213, 158, 0.08), transparent 65%);
   pointer-events: none;
 }
 
 .welcome-card h2 {
   margin: 0 0 12px;
+  font-family: var(--font-heading);
   font-size: clamp(1.6rem, 3vw, 2.3rem);
 }
 
 .welcome-card p {
   color: var(--muted);
+  font-family: var(--font-body);
   margin: 0 0 22px;
 }
 
@@ -644,11 +1146,21 @@ h3 {
   aspect-ratio: 1;
   border-radius: 24px;
   border: 1px dashed var(--line);
-  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.07), transparent 70%);
+  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.05), transparent 70%);
   color: var(--faint);
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
   text-align: center;
   padding: 20px;
+}
+
+@keyframes mascot-zero-gravity {
+  0%, 100% {
+    transform: translateY(0) rotate(-1.5deg) scale(1);
+  }
+  50% {
+    transform: translateY(-16px) rotate(2deg) scale(1.02);
+  }
 }
 
 /* --------------------------------------------------------------- story page */
@@ -674,9 +1186,11 @@ h3 {
   align-items: center;
   gap: 8px;
   color: var(--faint);
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  transition: color 0.2s ease;
 }
 
 .back-link:hover {
@@ -685,6 +1199,7 @@ h3 {
 
 .aside-title {
   margin: 0;
+  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   line-height: 1.1;
 }
@@ -692,13 +1207,16 @@ h3 {
 .aside-artifact {
   margin: 6px 0 0;
   color: var(--accent);
-  font-size: 0.92rem;
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  letter-spacing: 0.04em;
 }
 
 .aside-era {
   margin: 16px 0 0;
   color: var(--faint);
-  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -753,9 +1271,10 @@ h3 {
   padding: 12px 16px;
   border-radius: 16px 16px 16px 4px;
   border: 1px solid var(--line-soft);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
   color: var(--muted);
-  font-size: 0.82rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
   line-height: 1.5;
 }
 
@@ -776,14 +1295,16 @@ h3 {
 
 .kicker {
   margin: 0 0 18px;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--faint);
 }
 
 .story-title {
   margin: 0 0 20px;
+  font-family: var(--font-heading);
   font-size: clamp(1.65rem, 3vw, 2.3rem);
   line-height: 1.16;
 }
@@ -791,7 +1312,8 @@ h3 {
 .story-body p {
   margin: 0 0 18px;
   color: #cfd8ec;
-  font-size: 1.02rem;
+  font-family: var(--font-body);
+  font-size: 1.04rem;
   line-height: 1.78;
 }
 
@@ -803,8 +1325,8 @@ h3 {
   padding-left: 18px;
   border-left: 2px solid var(--accent);
   color: #e7edff;
-  font-family: var(--serif);
-  font-size: 1.12rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
   font-style: italic;
 }
 
@@ -820,7 +1342,8 @@ h3 {
 
 .story-hint {
   color: var(--faint);
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
 }
 
 /* ------------------------------------------------------------------- facts */
@@ -836,20 +1359,22 @@ h3 {
   padding: 14px 16px;
   border-radius: 16px;
   border: 1px solid var(--line-soft);
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .fact-label {
   display: block;
+  font-family: var(--font-mono);
   font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--faint);
   margin-bottom: 4px;
 }
 
 .fact-value {
-  font-size: 0.92rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
   color: #e5ebf9;
 }
 
@@ -885,16 +1410,17 @@ h3 {
   gap: 12px;
   align-items: baseline;
   margin: 0 0 14px;
-  font-size: 1.02rem;
+  font-family: var(--font-heading);
+  font-size: 1.08rem;
   color: #e9eeff;
   font-weight: 500;
 }
 
 .question-index {
-  font-family: var(--serif);
+  font-family: var(--font-mono);
   color: var(--accent);
-  font-size: 0.95rem;
-  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
 }
 
 .options {
@@ -909,16 +1435,17 @@ h3 {
   padding: 12px 16px;
   border-radius: 14px;
   border: 1px solid var(--line-soft);
-  background: rgba(255, 255, 255, 0.028);
+  background: rgba(255, 255, 255, 0.02);
   cursor: pointer;
   transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
-  font-size: 0.94rem;
+  font-family: var(--font-body);
+  font-size: 0.96rem;
   color: #cfd8ec;
 }
 
 .option:hover {
-  border-color: rgba(255, 255, 255, 0.24);
-  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .option input {
@@ -931,7 +1458,7 @@ h3 {
   flex: 0 0 18px;
   width: 18px;
   height: 18px;
-  margin-top: 2px;
+  margin-top: 3px;
   border-radius: 50%;
   border: 1px solid rgba(255, 255, 255, 0.35);
   display: grid;
@@ -958,8 +1485,8 @@ h3 {
 }
 
 .option:has(input:checked) {
-  border-color: rgba(255, 220, 170, 0.5);
-  background: rgba(255, 220, 170, 0.07);
+  border-color: rgba(255, 220, 170, 0.45);
+  background: rgba(255, 220, 170, 0.06);
 }
 
 .option input:focus-visible + .option-mark {
@@ -991,21 +1518,52 @@ h3 {
     radial-gradient(closest-side, #0a0e1b 72%, transparent 73%),
     conic-gradient(var(--accent) calc(var(--score) * 1%), rgba(255, 255, 255, 0.1) 0);
   box-shadow: 0 0 40px rgba(255, 214, 160, 0.14);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .score-ring span {
-  font-family: var(--serif);
-  font-size: 1.9rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.95rem;
 }
 
 .score-ring small {
   display: block;
-  font-family: var(--sans);
-  font-size: 0.66rem;
-  letter-spacing: 0.16em;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--faint);
   text-align: center;
+}
+
+.score-ring.is-new-burst {
+  animation: result-ring-glow 3s ease-in-out infinite alternate;
+  box-shadow: 0 0 50px rgba(255, 214, 160, 0.45);
+}
+
+.btn-celebrate {
+  animation: btn-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes result-ring-glow {
+  0% {
+    box-shadow: 0 0 30px rgba(255, 214, 160, 0.3);
+    transform: scale(1);
+  }
+  100% {
+    box-shadow: 0 0 65px rgba(255, 225, 175, 0.65);
+    transform: scale(1.04);
+  }
+}
+
+@keyframes btn-glow {
+  0% {
+    box-shadow: 0 14px 34px rgba(255, 203, 132, 0.25);
+  }
+  100% {
+    box-shadow: 0 18px 48px rgba(255, 215, 150, 0.55);
+  }
 }
 
 .result-head {
@@ -1018,12 +1576,14 @@ h3 {
 
 .result-head h1 {
   margin: 0 0 6px;
+  font-family: var(--font-heading);
   font-size: clamp(1.6rem, 3vw, 2.2rem);
 }
 
 .result-head p {
   margin: 0;
   color: var(--muted);
+  font-family: var(--font-body);
 }
 
 .review {
@@ -1038,7 +1598,7 @@ h3 {
   padding: 14px 16px;
   border-radius: 14px;
   border: 1px solid var(--line-soft);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .review-item.is-right {
@@ -1056,6 +1616,7 @@ h3 {
   margin: 0 0 6px;
   font-size: 0.95rem;
   color: #e9eeff;
+  font-family: var(--font-body);
 }
 
 .review-question i {
@@ -1068,7 +1629,8 @@ h3 {
 
 .review-answer {
   margin: 0;
-  font-size: 0.85rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   color: var(--muted);
 }
 
@@ -1079,7 +1641,8 @@ h3 {
 
 .review-why {
   margin: 6px 0 0;
-  font-size: 0.83rem;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
   color: var(--faint);
 }
 
@@ -1093,10 +1656,11 @@ h3 {
   padding: 16px 20px;
   border-radius: 18px;
   border: 1px solid rgba(255, 214, 160, 0.28);
-  background: linear-gradient(120deg, rgba(255, 214, 160, 0.12), rgba(255, 255, 255, 0.03));
+  background: linear-gradient(120deg, rgba(255, 214, 160, 0.1), rgba(255, 255, 255, 0.02));
   margin: 26px 0 0;
   color: #fdf1de;
-  font-size: 0.92rem;
+  font-family: var(--font-body);
+  font-size: 0.94rem;
 }
 
 .banner i {
@@ -1110,7 +1674,7 @@ h3 {
   object-fit: contain;
   margin: -10px 0 -10px -4px;
   filter: drop-shadow(0 10px 26px rgba(150, 180, 255, 0.28));
-  animation: floaty 8s ease-in-out infinite;
+  animation: floaty 7s ease-in-out infinite;
 }
 
 /* ------------------------------------------------------------------- footer */
@@ -1119,11 +1683,18 @@ h3 {
   padding: 26px 0 34px;
   border-top: 1px solid var(--line-soft);
   color: var(--faint);
-  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
   display: flex;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.footer a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
 }
 
 .footer a:hover {
@@ -1139,6 +1710,15 @@ h3 {
   }
   .hero-copy {
     text-align: left;
+  }
+  .hero-mascot-drift {
+    justify-content: center;
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+  .hero-mascot-drift .mascot-drift-img {
+    max-width: 360px;
+    margin: 0 auto;
   }
   .constellation {
     max-height: none;
@@ -1187,7 +1767,7 @@ h3 {
     justify-content: center;
   }
   .star-label {
-    font-size: 15px;
+    font-size: 13px;
   }
   .score-ring {
     width: 108px;
