@@ -273,6 +273,144 @@
     });
   }
 
+  const constellationPanel = document.querySelector(".constellation-panel[data-random-url]");
+  if (constellationPanel) {
+    constellationPanel.addEventListener("click", (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (target.closest(".star.is-done, .constellation-random-link")) return;
+      event.preventDefault();
+      window.location.assign(constellationPanel.dataset.randomUrl);
+    });
+  }
+
+  const constellationSvg = document.querySelector(".constellation");
+  const nebulaPointerClear = constellationSvg && constellationSvg.querySelector(".nebula-pointer-clear");
+  if (constellationSvg && nebulaPointerClear) {
+    constellationSvg.addEventListener("pointermove", (event) => {
+      const screenMatrix = constellationSvg.getScreenCTM();
+      if (!screenMatrix) return;
+      const point = constellationSvg.createSVGPoint();
+      point.x = event.clientX;
+      point.y = event.clientY;
+      const position = point.matrixTransform(screenMatrix.inverse());
+      nebulaPointerClear.setAttribute("cx", position.x.toFixed(1));
+      nebulaPointerClear.setAttribute("cy", position.y.toFixed(1));
+      nebulaPointerClear.setAttribute("opacity", "1");
+    }, { passive: true });
+
+    constellationSvg.addEventListener("pointerleave", () => {
+      nebulaPointerClear.setAttribute("opacity", "0");
+    });
+  }
+
+  const wordLookup = document.getElementById("word-lookup");
+  if (wordLookup) {
+    const wordInput = document.getElementById("dictionary-word");
+    const lookupResult = document.getElementById("word-lookup-result");
+    const lookupStatus = document.getElementById("word-lookup-status");
+    const definitionCard = document.getElementById("word-definition-card");
+    const definitionTitle = document.getElementById("word-definition-title");
+    const definitionGroups = document.getElementById("word-definition-groups");
+    const lookupButton = wordLookup.querySelector('button[type="submit"]');
+    const setLookupMessage = (state, message) => {
+      lookupResult.dataset.state = state;
+      lookupStatus.textContent = message;
+      definitionCard.hidden = true;
+      definitionGroups.replaceChildren();
+    };
+    const finishLookup = () => {
+      lookupButton.disabled = false;
+      wordLookup.removeAttribute("aria-busy");
+    };
+
+    wordLookup.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const word = wordInput.value.trim();
+      if (!/^\p{L}+(?:[-'’]\p{L}+)*$/u.test(word)) {
+        setLookupMessage("error", "Enter one word using letters; hyphens or apostrophes are okay.");
+        wordInput.focus();
+        return;
+      }
+
+      setLookupMessage("loading", `I am looking up "${word}"…`);
+      lookupButton.disabled = true;
+      wordLookup.setAttribute("aria-busy", "true");
+
+      const response = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${encodeURIComponent(word)}`
+      ).catch(() => null);
+      if (!response) {
+        setLookupMessage("error", "Sorry, I couldn't reach the dictionary right now. Please try again.");
+        finishLookup();
+        return;
+      }
+
+      if (response.status === 404) {
+        setLookupMessage("error", `I couldn't find "${word}". Try another word.`);
+        finishLookup();
+        return;
+      }
+      if (!response.ok) {
+        setLookupMessage("error", "The dictionary service returned an error. Please try again.");
+        finishLookup();
+        return;
+      }
+
+      const entries = await response.json().catch(() => null);
+      if (!Array.isArray(entries)) {
+        setLookupMessage("error", "I couldn't read the dictionary response. Please try again.");
+        finishLookup();
+        return;
+      }
+
+      const meanings = entries.flatMap((entry) =>
+        entry && Array.isArray(entry.meanings) ? entry.meanings : []
+      );
+      const definitionGroupsToRender = meanings.map((meaning) => ({
+        partOfSpeech: typeof meaning.partOfSpeech === "string" ? meaning.partOfSpeech : "",
+        definitions: Array.isArray(meaning.definitions)
+          ? meaning.definitions
+            .filter((item) => item && typeof item.definition === "string" && item.definition.trim())
+            .map((item) => item.definition.trim())
+          : []
+      })).filter((group) => group.definitions.length);
+      const definitionCount = definitionGroupsToRender.reduce(
+        (total, group) => total + group.definitions.length,
+        0
+      );
+      if (!definitionCount) {
+        setLookupMessage("error", `I couldn't find a definition for "${word}". Try another word.`);
+        finishLookup();
+        return;
+      }
+
+      definitionTitle.textContent = `“${word}”`;
+      definitionGroupsToRender.forEach((group) => {
+        const groupElement = document.createElement("section");
+        groupElement.className = "word-definition-group";
+
+        const heading = document.createElement("h4");
+        heading.textContent = group.partOfSpeech || "Meaning";
+        groupElement.appendChild(heading);
+
+        const list = document.createElement("ol");
+        group.definitions.forEach((definition) => {
+          const item = document.createElement("li");
+          item.textContent = definition;
+          list.appendChild(item);
+        });
+        groupElement.appendChild(list);
+        definitionGroups.appendChild(groupElement);
+      });
+
+      lookupResult.dataset.state = "success";
+      lookupStatus.textContent = `I found ${definitionCount} ${definitionCount === 1 ? "definition" : "definitions"}.`;
+      definitionCard.hidden = false;
+      finishLookup();
+    });
+  }
+
   /* ------------------------------------- Bright Added Star Celebration Particle FX */
   const toastClose = document.querySelector(".new-star-toast__close");
   if (toastClose) {

@@ -1,12 +1,11 @@
 MISSION = {
     "slug": "apollo-18",
-    "order": 1,
     "name": "Apollo 18",
     "artifact": "Lunar Module LM-13",
     "era": "1969 – 1970 · cancelled before flight",
     "accent": "#ffcf8f",
     "tagline": "The last lunar module built for a landing that never came.",
-    "star": {"x": 50, "y": 8, "radius": 3.8},
+    "star": {"x": 10, "y": 45, "radius": 3.8},
     "pages": [
         {
             "title": "I was assembled in Bethpage",

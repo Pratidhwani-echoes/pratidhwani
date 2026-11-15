@@ -1,12 +1,11 @@
 MISSION = {
     "slug": "nerva-xe",
-    "order": 2,
     "name": "NERVA XE",
     "artifact": "Experimental nuclear rocket engine",
     "era": "1969 – 1973 · tested, never flown",
     "accent": "#7fe3ff",
     "tagline": "An engine that turned a reactor into a way to leave Earth faster.",
-    "star": {"x": 24, "y": 27, "radius": 3.4},
+    "star": {"x":45, "y": 43, "radius": 3.4},
     "pages": [
         {
             "title": "A furnace with a nozzle",

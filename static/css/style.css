@@ -577,8 +577,33 @@ h6 {
 .hero-mascot-drift {
   margin-top: clamp(14px, 2.5vh, 26px);
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.hero-mascot-drift picture {
+  display: block;
+  width: 100%;
+}
+
+.nebula-instruction {
+  align-self: center;
+  max-width: min(300px, calc(100% - 48px));
+  margin: 0 0 12px;
+  padding: 11px 15px;
+  transform: translateX(24px);
+  border: 1px solid var(--line-soft);
+  border-radius: 16px 16px 16px 4px;
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: 0 10px 28px rgba(4, 8, 24, 0.28);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .hero-mascot-drift .mascot-drift-img {
@@ -601,6 +626,34 @@ h6 {
   transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), box-shadow 0.6s ease;
 }
 
+.constellation-panel[data-random-url] {
+  cursor: pointer;
+}
+
+.constellation-random-link {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 12px;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.constellation-random-link:focus-visible {
+  width: auto;
+  height: auto;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #101629;
+  color: var(--ink);
+  clip-path: none;
+}
+
 .constellation-panel::before {
   content: "";
   position: absolute;
@@ -618,11 +671,29 @@ h6 {
   width: 100%;
   height: auto;
   max-height: 62vh;
-  overflow: visible;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .links {
   pointer-events: none;
+}
+
+.nebula-fog {
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+}
+
+.constellation.all-done .nebula-fog {
+  opacity: 0.68;
+}
+
+.nebula-pointer-clear {
+  transition: opacity 0.4s ease;
+}
+
+.nebula-clearings circle {
+  mix-blend-mode: darken;
 }
 
 .links line {
@@ -633,10 +704,15 @@ h6 {
 }
 
 .links line.lit {
-  stroke: rgba(208, 224, 255, 0.62);
+  stroke: rgba(208, 224, 255, 0.75);
   stroke-dasharray: none;
   stroke-width: 1.4;
-  filter: drop-shadow(0 0 6px rgba(180, 205, 255, 0.5));
+  filter: drop-shadow(0 0 6px rgba(180, 205, 255, 0.6));
+}
+
+.constellation:not(.all-done) .links line:not(.lit) {
+  opacity: 0.12;
+  filter: blur(2px);
 }
 
 .star {
@@ -644,6 +720,12 @@ h6 {
   cursor: pointer;
   transform-box: fill-box;
   transform-origin: center;
+}
+
+.constellation:not(.all-done) .star:not(.is-done) {
+  opacity: 0.08;
+  filter: blur(8px);
+  transition: opacity 0.6s ease, filter 0.6s ease;
 }
 
 .star-halo {
@@ -1228,6 +1310,117 @@ h6 {
   padding: 20px;
 }
 
+.not-found-page {
+  display: grid;
+  place-items: center;
+  min-height: min(72vh, 720px);
+  padding: clamp(24px, 5vh, 54px) 0;
+}
+
+.not-found-card {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(20px, 3vw, 40px);
+  width: 100%;
+  max-width: 940px;
+  padding: clamp(22px, 3vw, 40px);
+  position: relative;
+  overflow: hidden;
+}
+
+.not-found-mascot {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+
+.not-found-card .mascot {
+  max-width: 330px;
+  max-height: 390px;
+}
+
+.not-found-copy h1 {
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  font-size: clamp(2.1rem, 5vw, 3.5rem);
+  line-height: 1.08;
+}
+
+.not-found-copy > p:not(.eyebrow) {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-family: var(--font-body);
+}
+
+.about-card {
+  max-width: 860px;
+  margin: clamp(24px, 6vh, 60px) auto;
+  padding: clamp(24px, 5vw, 48px);
+}
+
+.about-card .back-link {
+  margin-bottom: 30px;
+}
+
+.about-title {
+  margin: 0 0 18px;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.12;
+}
+
+.about-intro,
+.about-note {
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.about-note {
+  padding: 16px 18px;
+  border-left: 2px solid var(--accent);
+  background: rgba(255, 255, 255, 0.03);
+  font-size: 0.92rem;
+}
+
+.about-sources {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.about-sources h2 {
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+}
+
+.about-sources ul {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding-left: 20px;
+  color: var(--faint);
+}
+
+.about-sources li {
+  padding-left: 4px;
+}
+
+.about-sources a {
+  color: #d7ddf2;
+  text-decoration: underline;
+  text-decoration-color: rgba(215, 221, 242, 0.4);
+  text-underline-offset: 3px;
+}
+
+.about-sources a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
 @keyframes mascot-zero-gravity {
   0%, 100% {
     transform: translateY(0) rotate(-1.5deg) scale(1);
@@ -1321,16 +1514,16 @@ h6 {
 
 .companion {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 12px;
   margin-top: 10px;
 }
 
 .companion img,
 .companion .companion-fallback {
-  width: 74px;
-  height: 74px;
-  flex: 0 0 74px;
+  width: 90px;
+  height: 90px;
+  flex: 0 0 90px;
   object-fit: contain;
   filter: drop-shadow(0 8px 20px rgba(150, 180, 255, 0.3));
 }
@@ -1350,6 +1543,151 @@ h6 {
   font-family: var(--font-body);
   font-size: 0.85rem;
   line-height: 1.5;
+}
+
+.companion-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.word-lookup {
+  width: 100%;
+  margin-top: 0;
+}
+
+.word-lookup label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+
+.word-lookup-controls {
+  display: flex;
+  align-items: stretch;
+  gap: 7px;
+}
+
+.word-lookup input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 11px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  outline: none;
+  background: rgba(6, 10, 22, 0.48);
+  color: var(--ink);
+  font: 0.82rem var(--font-body);
+}
+
+.word-lookup input::placeholder {
+  color: var(--faint);
+}
+
+.word-lookup input:focus-visible {
+  border-color: var(--accent);
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.word-lookup .icon-button {
+  justify-content: center;
+  padding: 7px 11px;
+  color: var(--ink);
+  font-size: 0.7rem;
+}
+
+.word-lookup .icon-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.word-lookup-result {
+  margin: 8px 0 0;
+}
+
+.word-lookup-status {
+  margin: 0;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.word-lookup-result[data-state="error"] .word-lookup-status {
+  color: #ffb8c0;
+}
+
+.word-lookup-result[data-state="success"] .word-lookup-status {
+  color: #e6ebff;
+}
+
+.word-definition-card {
+  max-height: 250px;
+  margin-top: 9px;
+  padding: 11px 12px;
+  overflow-y: auto;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(42, 48, 77, 0.58), rgba(11, 16, 33, 0.72));
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.04);
+  scrollbar-color: var(--line-soft) transparent;
+}
+
+.word-definition-card[hidden] {
+  display: none;
+}
+
+.word-definition-card h3 {
+  margin: 0 0 9px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.word-definition-group + .word-definition-group {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.word-definition-group h4 {
+  margin: 0 0 5px;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.word-definition-group ol {
+  margin: 0;
+  padding-left: 18px;
+  color: #e6ebff;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+.word-definition-group li + li {
+  margin-top: 4px;
+}
+
+.word-lookup-credit {
+  margin: 6px 0 0;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+}
+
+.word-lookup-credit a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .story-card {
@@ -1787,6 +2125,7 @@ h6 {
   }
   .hero-mascot-drift {
     justify-content: center;
+    align-items: center;
     margin-top: 18px;
     margin-bottom: 8px;
   }
@@ -1801,6 +2140,16 @@ h6 {
     grid-template-columns: 1fr;
     text-align: left;
   }
+  .not-found-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: center;
+  }
+  .not-found-card .mascot {
+    max-width: 240px;
+    max-height: 280px;
+    margin: 0 auto;
+  }
   .welcome-card .mascot,
   .welcome-card .mascot-slot {
     max-width: 300px;
@@ -1811,9 +2160,6 @@ h6 {
   }
   .story-aside {
     position: static;
-  }
-  .companion {
-    display: none;
   }
 }
 

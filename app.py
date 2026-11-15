@@ -12,6 +12,9 @@ from pathlib import Path
 from flask import Flask, abort, redirect, render_template, request, session, url_for
 
 from content import MISSIONS, MISSIONS_BY_SLUG, build_sky
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent
 MASCOT_FILE = BASE_DIR / "static" / "img" / "ananta-wave.webp"
@@ -21,33 +24,34 @@ PASS_MARK = 4
 
 COMPANION = {
     "welcome": (
-        "I'm Ananta. I keep the quiet part of the sky - the missions that were "
-        "finished, tested, and then never flown. Pick a star and I'll let the "
-        "hardware do the talking."
+        "Welcome to Pratidhwani. Many missions were abandoned by the National Aeronautics and Space Administration (NASA). "
+        "Though they are not currently active, their contributions towards expanding our understanding of the Solar system and "
+        "the Universe must never be forgotten. This museum is dedicated to those missions and the people who worked on them."
     ),
     "story": [
-        "Read it slowly. These machines were built by people who expected them to fly.",
+        "Listen carefully. These machines are the reason we can reach for the stars today.",
         "Every number here was paid for twice: once in money, once in years.",
-        "This is the part I find hardest to explain to visitors.",
+        "You honour the engineers and scientists who built these machines by reading their stories and remembering their lessons.",
         "Nearly there. The last page is where the facts live.",
-        "That's the whole story. Ready for five questions?",
+        "That's the whole story. Are you ready for five questions?",
     ],
     "quiz": "No pressure. Four right and this star joins the sky.",
-    "pass": "You did it! Look up - your star is lit.",
-    "fail": "That was close. Walk back through the story and try again; the star will wait.",
-    "complete": "All six are lit! This is what the sky would have looked like if they had flown.",
+    "pass": "You did it! Look up - a new star is lit.",
+    "fail": "Not quite there yet. Walk back through the story and try again; the star will wait.",
+    "complete": "All eight stars are lit! You have finished this museum, but the sky has many more stars and more stories."
+    "Keep looking up and stay curious. The stories are yours to revisit whenever you like.",
 }
 
 app = Flask(__name__)
 app.config.update(
-    SECRET_KEY=os.environ.get("SECRET_KEY", "unfinished-constellation-dev-key"),
+    SECRET_KEY=os.environ.get("SECRET_KEY"),
     SESSION_COOKIE_HTTPONLY=True,
     SESSION_COOKIE_SAMESITE="Lax",
 )
 
 
 def completed_slugs():
-    """Completed missions, filtered against the registry and kept in story order."""
+    """Completed missions, filtered against the registry and kept in registry order."""
     stored = session.get("completed", [])
     known = set(stored)
     return [mission["slug"] for mission in MISSIONS if mission["slug"] in known]
@@ -71,7 +75,12 @@ def shared_context():
     }
 
 
-def _starfield(seed=11, count=110):
+@app.errorhandler(404)
+def page_not_found(_error):
+    return render_template("404.html"), 404
+
+
+def _starfield(seed=11, count=125):
     """The parallax starfield is generated in Python, not painted by JavaScript."""
     rng = random.Random(seed)
     dots = []
@@ -81,7 +90,9 @@ def _starfield(seed=11, count=110):
             {
                 "x": round(rng.uniform(0, 100), 2),
                 "y": round(rng.uniform(0, 100), 2),
-                "size": rng.choice((1, 1, 1, 2, 2, 3)) if layer > 1 else rng.choice((1, 2)),
+                "size": (
+                    rng.choice((1, 1, 1, 2, 2, 3)) if layer > 1 else rng.choice((1, 2))
+                ),
                 "delay": round(rng.uniform(0, 8), 2),
                 "duration": round(rng.uniform(3.5, 9), 2),
                 "opacity": round(rng.uniform(0.18, 0.8), 2),
@@ -104,6 +115,14 @@ def get_mission(slug):
 @app.get("/")
 def landing():
     done = completed_slugs()
+    available_missions = [
+        mission for mission in MISSIONS if mission["slug"] not in done
+    ]
+    random_mission_url = (
+        url_for("artifact_start", slug=random.choice(available_missions)["slug"])
+        if available_missions
+        else None
+    )
     newcomer = request.args.get("new")
     if newcomer not in MISSIONS_BY_SLUG or newcomer not in done:
         newcomer = None
@@ -113,8 +132,14 @@ def landing():
         done=done,
         met=session.get("met", False),
         newcomer=newcomer,
+        random_mission_url=random_mission_url,
         all_done=len(done) == len(MISSIONS) and bool(MISSIONS),
     )
+
+
+@app.get("/about")
+def about():
+    return render_template("about.html")
 
 
 @app.post("/begin")
@@ -208,7 +233,11 @@ def artifact_quiz_submit(slug):
         was_completed=was_completed,
         newly_added=passed and not was_completed,
         results=results,
-        celebrate=(url_for("landing", new=slug) if passed and not was_completed else url_for("landing")),
+        celebrate=(
+            url_for("landing", new=slug)
+            if passed and not was_completed
+            else url_for("landing")
+        ),
     )
 
 

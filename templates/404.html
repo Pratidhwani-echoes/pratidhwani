@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Lost in Space · Pratidhwani{% endblock %}
+
+{% block content %}
+<section class="not-found-page">
+  <article class="not-found-card glass">
+    <div class="not-found-mascot">
+      <img class="mascot" src="{{ url_for('static', filename='img/Ananta-stance.webp') }}" width="471" height="723" alt="Ananta looking for the way back">
+    </div>
+    <div class="not-found-copy">
+      <p class="eyebrow"><i class="bi bi-stars"></i> 404 · Signal lost</p>
+      <h1>Lost in Space</h1>
+      <p>This page has drifted beyond the constellation. Ananta can guide you back to the observatory.</p>
+      <a class="btn-primary" href="{{ url_for('landing') }}">Return to home <i class="bi bi-house"></i></a>
+    </div>
+  </article>
+</section>
+{% endblock %}

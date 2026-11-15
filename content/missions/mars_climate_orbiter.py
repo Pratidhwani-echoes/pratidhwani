@@ -1,12 +1,11 @@
 MISSION = {
     "slug": "mars-climate-orbiter",
-    "order": 4,
     "name": "Mars Climate Orbiter",
     "artifact": "Orbiter and communications relay",
     "era": "1998 – 1999 · lost on arrival",
     "accent": "#7ff0d0",
     "tagline": "A weather satellite that arrived sixty kilometres too low.",
-    "star": {"x": 15, "y": 66, "radius": 3.2},
+    "star": {"x": 27, "y": 87, "radius": 3.2},
     "pages": [
         {
             "title": "I left Earth as a weather satellite",

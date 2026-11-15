@@ -25,12 +25,31 @@
 
     <div class="companion">
       {% if mascot_ready %}
-      <img src="{{ url_for('static', filename='img/ananta-stance.webp') }}" width="471" height="723" alt="Ananta, listening">
+      <img src="{{ url_for('static', filename='img/ananta-stance.webp') }}" alt="Ananta, listening">
       {% else %}
       <span class="companion-fallback"></span>
       {% endif %}
-      <p class="companion-bubble">{{ companion_line }}</p>
+      <div class="companion-content">
+        <p class="companion-bubble">{{ companion_line }}</p>
+      </div>
     </div>
+    <form class="word-lookup" id="word-lookup" aria-label="Look up a word with Ananta" aria-describedby="word-lookup-credit" novalidate>
+      <label for="dictionary-word">Having trouble with a word? Ask me</label>
+      <div class="word-lookup-controls">
+        <input id="dictionary-word" name="word" type="text" maxlength="64" autocomplete="off" autocapitalize="none" spellcheck="false" placeholder="Enter one word" required>
+        <button class="icon-button" type="submit">Define</button>
+      </div>
+      <div class="word-lookup-result" id="word-lookup-result">
+        <p class="word-lookup-status" id="word-lookup-status" role="status" aria-live="polite" aria-atomic="true"></p>
+        <section class="word-definition-card" id="word-definition-card" aria-labelledby="word-definition-title" hidden>
+          <h3 id="word-definition-title"></h3>
+          <div class="word-definition-groups" id="word-definition-groups"></div>
+        </section>
+      </div>
+      <p class="word-lookup-credit" id="word-lookup-credit">
+        Definitions from <a href="https://dictionaryapi.dev/" target="_blank" rel="noopener noreferrer">Dictionary API</a>
+      </p>
+    </form>
 
     {% if completed %}
     <p class="pill" style="align-self: flex-start;"><i class="bi bi-star-fill"></i> Star already lit</p>

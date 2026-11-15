@@ -1,12 +1,11 @@
 MISSION = {
     "slug": "x-33",
-    "order": 3,
     "name": "X-33",
     "artifact": "VentureStar demonstrator",
     "era": "1996 – 2001 · cancelled before first flight",
     "accent": "#b9a7ff",
     "tagline": "A spaceplane meant to make orbit routine, grounded by its own fuel tank.",
-    "star": {"x": 76, "y": 31, "radius": 3.4},
+    "star": {"x": 49, "y": 52, "radius": 3.4},
     "pages": [
         {
             "title": "A spaceship that was supposed to pay for itself",

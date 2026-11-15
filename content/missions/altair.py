@@ -1,12 +1,11 @@
 MISSION = {
     "slug": "altair",
-    "order": 6,
     "name": "Altair",
     "artifact": "Constellation lunar lander",
     "era": "2005 – 2010 · designed, never built",
     "accent": "#a6c8ff",
     "tagline": "The four-person lander for a return to the Moon that was cancelled twice over.",
-    "star": {"x": 50, "y": 90, "radius": 3.8},
+    "star": {"x": 70, "y": 7, "radius": 3.8},
     "pages": [
         {
             "title": "The lander after the lander",

@@ -1,12 +1,11 @@
 MISSION = {
     "slug": "mars-polar-lander",
-    "order": 5,
     "name": "Mars Polar Lander",
     "artifact": "South polar lander and Deep Space 2",
     "era": "1999 · lost during descent",
     "accent": "#ff9aa8",
     "tagline": "A lander sent to read the climate record written in polar ice.",
-    "star": {"x": 85, "y": 62, "radius": 3.2},
+    "star": {"x": 55, "y": 57, "radius": 3.2},
     "pages": [
         {
             "title": "South, where the ice is",
