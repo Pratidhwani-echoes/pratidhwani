@@ -206,6 +206,8 @@ def artifact_quiz_submit(slug):
             picked = int(raw)
         except (TypeError, ValueError):
             picked = None
+        if picked is not None and not 1 <= picked <= len(question["options"]):
+            picked = None
         correct = picked == question["answer"]
         score += 1 if correct else 0
         results.append(

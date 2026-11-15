@@ -28,8 +28,8 @@
       </p>
       <p class="review-answer">
         Your answer:
-        <strong>{{ item.options[item.picked] if item.picked is not none else 'No answer' }}</strong>
-        {% if not item.correct %} · Correct answer: <strong>{{ item.options[item.answer] }}</strong>{% endif %}
+        <strong>{{ item.options[item.picked - 1] if item.picked is not none else 'No answer' }}</strong>
+        {% if not item.correct %} · Correct answer: <strong>{{ item.options[item.answer - 1] }}</strong>{% endif %}
       </p>
       <p class="review-why">{{ item.why }}</p>
     </li>

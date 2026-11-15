@@ -6,6 +6,7 @@ Adding an artifact is three steps and no template edits:
 2. Give the new ``MISSION`` dict a unique ``slug`` and place its star with
    ``star: {"x": 0-100, "y": 0-100}``.
 3. Write four story pages plus one overview page, and exactly five questions.
+   Quiz answer keys are 1-based option numbers.
 
 Star positions, progress count, quiz routes, and reset behavior pick new modules
 up automatically. Configure constellation connections in ``STAR_LINKS`` below.
@@ -19,15 +20,15 @@ STAR_H = 600
 
 # Add pairs of mission slugs to draw constellation links; leave empty for none.
 STAR_LINKS = (
-    ("apollo-18", "mars-climate-orbiter"),
-    ("apollo-18", "nerva-xe"),
-    ("x-33", "nerva-xe"),
-    ("mars-polar-lander", "x-33"),
-    ("mars-polar-lander", "x-34"),
-    ("x-35", "x-34"),
-    ("mars-polar-lander", "mars-climate-orbiter"),
-    ("altair", "nerva-xe"),
-    ("altair", "x-35")
+    ("apollo-10", "dawn"),
+    ("apollo-10", "voyager-1"),
+    ("voyager-2", "voyager-1"),
+    ("isee-3", "voyager-2"),
+    ("isee-3", "surveyor-3"),
+    ("pioneer-10", "surveyor-3"),
+    ("isee-3", "dawn"),
+    ("apollo-12", "voyager-1"),
+    ("apollo-12", "surveyor-3"),
 )
 
 REQUIRED_KEYS = (
@@ -52,8 +53,8 @@ def _validate(mission, filename):
         raise ValueError(f"{filename}: a quiz needs exactly five questions")
 
     for index, question in enumerate(mission["quiz"], start=1):
-        if not 0 <= question["answer"] < len(question["options"]):
-            raise ValueError(f"{filename}: question {index} has an answer index out of range")
+        if not 1 <= question["answer"] <= len(question["options"]):
+            raise ValueError(f"{filename}: question {index} answer must be a 1-based option number")
 
     if not mission["pages"] or not mission["pages"][-1].get("overview"):
         raise ValueError(f"{filename}: the last page must be the overview page")

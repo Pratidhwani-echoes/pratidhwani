@@ -1,55 +1,63 @@
-{% extends "base.html" %}
-{% block title %}About · Pratidhwani{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block title %}About · Pratidhwani{% endblock %} {%
+block content %}
 <article class="about-card glass">
-  <a class="back-link" href="{{ url_for('landing') }}"><i class="bi bi-arrow-left"></i> The constellation</a>
+  <a class="back-link" href="{{ url_for('landing') }}"
+    ><i class="bi bi-arrow-left"></i> The constellation</a
+  >
   <p class="eyebrow"><i class="bi bi-broadcast"></i> About this exhibit</p>
-  <h1 class="about-title">An echo of missions that never flew.</h1>
+  <h1 class="about-title">Pratidhwani - an echo of abandoned missions.</h1>
   <p class="about-intro">
-    Pratidhwani is an interactive exhibit about eight spacecraft and programs that were
-    built, tested, cancelled, or lost before they could fulfill their intended missions.
-    Explore their stories through the voices of the hardware.
+    Pratidhwani is an interactive exhibit about eight spacecraft and programs
+    that have contributed to our understanding of the Universe of which we are a
+    part. This website is an attempt to preserve the memory of these missions.
+  </p>
+  <p class="about-intro">
+    It is aimed at teaching school-age space enthusiasts and curious minds of
+    all ages about human ingenuity and innovation. Thus, the principle of
+    "active learning" is emphasized by following up the reading with a quiz and
+    questions to ponder. To ensure ease of use and accessibility, a dictionary
+    API is utilised to provide definitions within the website itself,
+    eliminating the need for users to navigate away from the exhibit.
+  </p>
+  <p class="about-intro">
+    If you find any errors, omissions or inaccuracies, please contact the author
+    at
+    <a href="mailto:Saanvishree@proton.me">Saanvishree@proton.me</a>.
   </p>
   <p class="about-note">
-    The first-person narration is a creative retelling. Dates, technical details, and
-    historical context are drawn from public mission records and technical reports;
-    the narration is not an official NASA publication.
+    A first-person narration is employed as a creative tool. Dates,
+    technical details, and historical context are drawn from public mission
+    records by NASA; the narration is not an official NASA publication.
   </p>
 
   <section class="about-sources" aria-labelledby="about-sources-title">
     <h2 id="about-sources-title">Sources &amp; further reading</h2>
     <ul>
       <li>
-        <a href="https://science.nasa.gov/mission/mars-climate-orbiter/" target="_blank" rel="noopener noreferrer">
-          NASA, Mars Climate Orbiter mission overview
+        <a
+          href="https://nssdc.gsfc.nasa.gov/"
+          target="_blank"
+          rel="noopener noreferrer">
+          NSSDCA, NASA Space Science Data Coordinated Archive
         </a>
       </li>
-      <li>
-        <a href="https://ntrs.nasa.gov/search?q=Mars%20Polar%20Lander" target="_blank" rel="noopener noreferrer">
-          NASA Technical Reports Server, Mars Polar Lander records
-        </a>
-      </li>
-      <li>
-        <a href="https://ntrs.nasa.gov/search?q=NERVA" target="_blank" rel="noopener noreferrer">
-          NASA Technical Reports Server, NERVA records
-        </a>
-      </li>
-      <li>
-        <a href="https://ntrs.nasa.gov/search?q=X-33" target="_blank" rel="noopener noreferrer">
-          NASA Technical Reports Server, X-33 records
-        </a>
-      </li>
-      <li>
-        <a href="https://ntrs.nasa.gov/search?q=Altair%20lunar%20lander%20Constellation" target="_blank" rel="noopener noreferrer">
-          NASA Technical Reports Server, Altair and Constellation records
-        </a>
-      </li>
-      <li>
-        <a href="https://history.nasa.gov/" target="_blank" rel="noopener noreferrer">
-          NASA History Office, Apollo program history
-        </a>
-      </li>
+    </ul>
+    <br />
+    <h2 id="about-sources-title">Super Intelligence tools used</h2>
+    <ul>
+      <li>Perplexity</li>
+      <li>Freebuff</li>
+      <li>Github Copilot</li>
+      <li>Google antigravity</li>
+      <li>Nano Banana</li>
+      <li>Gemini Notebook</li>
+    </ul>
+    <br />
+    <h2 id="about-sources-title">Other tools used</h2>
+    <ul>
+      <li>Canva</li>
+      <li>Grammarly</li>
+      <li>Pixabay</li>
     </ul>
   </section>
 </article>

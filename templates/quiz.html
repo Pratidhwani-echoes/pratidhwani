@@ -26,7 +26,7 @@
       <div class="options">
         {% for option in question.options %}
         <label class="option">
-          <input type="radio" name="q{{ question_index }}" value="{{ loop.index0 }}" required>
+          <input type="radio" name="q{{ question_index }}" value="{{ loop.index }}" required>
           <span class="option-mark" aria-hidden="true"></span>
           <span>{{ option }}</span>
         </label>
