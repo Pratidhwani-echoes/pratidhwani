@@ -29,20 +29,19 @@
 
 {% else %}
 {% if newcomer %}
+<audio id="star-light-sfx" src="{{ url_for('static', filename='audio/twinkle_sfx.webm') }}" preload="auto"></audio>
 <div class="new-star-toast" role="status" aria-live="polite">
   <span class="toast-sparkle"><i class="bi bi-stars"></i></span>
   <span>A new star has ignited: <strong>{{ missions_by_slug[newcomer].name }}</strong> is now shining in the sky!</span>
+  <button class="new-star-toast__close" type="button" aria-label="Dismiss new star announcement">
+    <i class="bi bi-x-lg" aria-hidden="true"></i>
+  </button>
 </div>
 {% endif %}
 
 <section class="hero">
   <div class="hero-copy">
-    <h1 class="display">Some missions<br>never got their ending.</h1>
-    <p class="lede">
-      Six pieces of hardware were designed, built and tested, then set aside for reasons
-      that had little to do with engineering. Open a star and let the machine tell you
-      what it was for.
-    </p>
+      <h1 class="display p-3" style="font-size: 2.5rem">Some missions<br>never got their ending.</h1>
     <div class="hero-meta">
       <span class="pill"><i class="bi bi-star-fill"></i> {{ sky.done_count }} of {{ sky.total }} stars lit</span>
     </div>
@@ -50,7 +49,7 @@
     <div class="hero-mascot-drift">
       <picture>
         <source srcset="{{ url_for('static', filename='img/ananta-drift.webp') }}" type="image/webp">
-        <img class="mascot-drift-img" src="{{ url_for('static', filename='img/Ananta-drift.svg') }}" width="1056" height="576" alt="Ananta drifting beside the constellation">
+        <img class="mascot-drift-img" style="width: 80%; max-width: 500px;" src="{{ url_for('static', filename='img/Ananta-drift.webp') }}" alt="Ananta drifting beside the constellation">
       </picture>
     </div>
   </div>
@@ -103,6 +102,27 @@
   <img class="banner-mascot" src="{{ url_for('static', filename='img/ananta-drift.webp') }}" width="481" height="731" alt="">
   <i class="bi bi-stars"></i>
   <span>{{ companion.complete }} <a href="{{ url_for('artifact_start', slug=missions[0].slug) }}" style="text-decoration: underline;">Revisit an artifact</a> whenever you like.</span>
+</div>
+
+<div class="completion-modal" id="completion-modal" role="dialog" aria-modal="true" aria-labelledby="completion-title">
+  <div class="welcome-card glass completion-card">
+    <button class="completion-modal__close" type="button" aria-label="Close completion message" autofocus>
+      <i class="bi bi-x-lg" aria-hidden="true"></i>
+    </button>
+    <div>
+      {% if mascot_ready %}
+      <img class="mascot" src="{{ url_for('static', filename='img/ananta-wave.webp') }}" width="495" height="723" alt="Ananta celebrating the completed constellation">
+      {% else %}
+      <div class="mascot-slot"><span><i class="bi bi-stars" style="display:block; font-size:1.5rem; margin-bottom:8px;"></i>Constellation complete</span></div>
+      {% endif %}
+    </div>
+    <div>
+      <p class="eyebrow"><i class="bi bi-stars"></i> Constellation complete</p>
+      <h2 id="completion-title">Every star is home.</h2>
+      <p>{{ companion.complete }} The stories are yours to revisit whenever you like.</p>
+      <a class="btn-primary" href="{{ url_for('artifact_start', slug=missions[0].slug) }}">Revisit an artifact <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
 </div>
 {% endif %}
 

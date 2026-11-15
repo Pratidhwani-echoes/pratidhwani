@@ -166,8 +166,32 @@
 
   if (bgm && audioToggle) {
     const STORAGE_KEY = "pratidhwani_bgm_state";
+    const POSITION_KEY = "pratidhwani_bgm_position";
     let isPlaying = false;
     let pausedForVisibility = false;
+    let positionRestored = false;
+
+    const restoreBgmPosition = () => {
+      if (positionRestored) return;
+      positionRestored = true;
+      const savedPosition = Number(sessionStorage.getItem(POSITION_KEY));
+      if (Number.isFinite(savedPosition) && savedPosition > 0) {
+        bgm.currentTime = savedPosition;
+      }
+      sessionStorage.removeItem(POSITION_KEY);
+    };
+
+    if (bgm.readyState >= 1) {
+      restoreBgmPosition();
+    } else {
+      bgm.addEventListener("loadedmetadata", restoreBgmPosition, { once: true });
+    }
+
+    window.addEventListener("pagehide", () => {
+      if (Number.isFinite(bgm.currentTime)) {
+        sessionStorage.setItem(POSITION_KEY, String(bgm.currentTime));
+      }
+    });
 
     const updateAudioUI = (playing) => {
       isPlaying = playing;
@@ -250,8 +274,64 @@
   }
 
   /* ------------------------------------- Bright Added Star Celebration Particle FX */
+  const toastClose = document.querySelector(".new-star-toast__close");
+  if (toastClose) {
+    toastClose.addEventListener("click", () => {
+      const toast = toastClose.closest(".new-star-toast");
+      if (toast) toast.remove();
+    });
+  }
+
+  const completionModal = document.getElementById("completion-modal");
+  if (completionModal) {
+    const dismissCompletionModal = () => {
+      completionModal.remove();
+      const returnFocus = document.querySelector(".brand");
+      if (returnFocus) returnFocus.focus();
+    };
+    const completionClose = completionModal.querySelector(".completion-modal__close");
+    if (completionClose) {
+      completionClose.addEventListener("click", dismissCompletionModal);
+    }
+    completionModal.addEventListener("click", (event) => {
+      if (event.target === completionModal) dismissCompletionModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        dismissCompletionModal();
+      } else if (event.key === "Tab") {
+        const focusable = completionModal.querySelectorAll(
+          'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+        );
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
+  }
+
   const newStar = document.querySelector(".star.is-new");
   if (newStar) {
+    const starLightSfx = document.getElementById("star-light-sfx");
+    if (starLightSfx) {
+      const playOnGesture = () => {
+        window.removeEventListener("pointerdown", playOnGesture);
+        window.removeEventListener("keydown", playOnGesture);
+        starLightSfx.currentTime = 0;
+        starLightSfx.play().catch(() => {});
+      };
+      starLightSfx.play().catch(() => {
+        window.addEventListener("pointerdown", playOnGesture, { once: true });
+        window.addEventListener("keydown", playOnGesture, { once: true });
+      });
+    }
+
     setTimeout(() => {
       const rect = newStar.getBoundingClientRect();
       const originX = rect.left + rect.width / 2;
