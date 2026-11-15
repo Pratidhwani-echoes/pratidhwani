@@ -24,7 +24,7 @@ STAR_LINKS = (
     ("apollo-10", "voyager-1"),
     ("voyager-2", "voyager-1"),
     ("isee-3", "voyager-2"),
-    ("isee-3", "surveyor-3"),
+    ("isee-3", "pioneer-10"),
     ("pioneer-10", "surveyor-3"),
     ("isee-3", "dawn"),
     ("apollo-12", "voyager-1"),
