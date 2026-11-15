@@ -4,18 +4,18 @@ MISSION = {
     "artifact": "Crewed lunar lander",
     "era": "1969 – 1977",
     "accent": "#a6c8ff",
-    "tagline": "Second to land on the Moon, first to land on a target.",
+    "tagline": "Intrepid’s Lunar Journey",
     "star": {"x": 70, "y": 7, "radius": 3.8},
     "pages": [
         {
-            "title": "Identity and beginning",
+            "title": "A spacecraft’s voice from the Sea of Storms.",
             "body": [
                 "I am Intrepid, the Apollo 12 Lunar Module, a two-stage spacecraft built by NASA to carry astronauts to the Moon’s surface. I launched from Cape Kennedy (now Cape Canaveral), United States, on 14 November 1969 aboard a Saturn 5 rocket."
                 "I was the second crewed vehicle to land on the Moon. I carried Commander Charles P. “Pete” Conrad and Lunar Module pilot Alan L. Bean, the third and fourth people to walk on the Moon. My mission was to land safely, support lunar exploration, and leave behind the Apollo Lunar Surface Experiments Package, or ALSEP: scientific instruments designed to study the Moon after my crew returned home. I also carried equipment for collecting Moon rocks, soil, photographs, and other scientific samples."
             ],
         },
         {
-            "title": "Journey to the Moon",
+            "title": "Built to Land, Ready to Return",
             "body": [
                 "I had two main parts. My lower descent stage carried landing legs, fuel, oxygen, water, helium, scientific equipment, and a powerful landing rocket. Its four round footpads held me 1.5 metres above the lunar surface, and one leg carried a ladder and platform for the astronauts to step onto the Moon."
                 "My upper ascent stage held a pressurized cabin for Conrad and Bean, with no seats, control panels, windows, and a rocket for returning to lunar orbit. I carried 15,235 kilograms in total, including propellant. My systems included a guidance computer, radar, gyroscopes, accelerometers, batteries, and communications equipment."
@@ -23,7 +23,7 @@ MISSION = {
             ],
         },
         {
-            "title": "Discovery and exploration",
+            "title": "Listening Beneath the Lunar Dust",
             "body": [
                 "On the Moon, Conrad and Bean made two Moon walks lasting 7 hours 45 minutes in total and travelling 1.35 kilometres. They deployed ALSEP around a central station, which used a SNAP-27 radioisotope thermoelectric generator powered by the heat from plutonium-238 to produce about 70 watts of electricity."
                 "ALSEP included a seismometer, ion detectors, a dust detector, a magnetometer, and a solar-wind spectrometer. These instruments measured moonquakes, low-energy ions, the thin lunar atmosphere, dust and radiation effects, magnetic fields, and electrons and protons arriving from the Sun. Their measurements were sent to Earth by radio."
@@ -31,7 +31,7 @@ MISSION = {
             ],
         },
         {
-            "title": "Mission",
+            "title": "A Farewell That Shook the Moon",
             "body": [
                 "One challenge came when the television camera was accidentally pointed toward the Sun during setup; its vidicon tube was damaged, and the camera stopped working. Even so, the mission continued successfully."
                 "After 31 hours 31 minutes on the Moon, my ascent stage lifted off on 20 November at 14:25:47 UT. Conrad and Bean docked with the Command/Service Module, piloted by Richard F. Gordon Jr., at 17:58:22 UT. My ascent stage was then jettisoned and intentionally crashed into the Moon about 65 kilometres from the Apollo 12 seismic station, creating the first recorded artificial moonquake."

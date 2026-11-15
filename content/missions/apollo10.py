@@ -4,25 +4,25 @@ MISSION = {
     "artifact": "Apollo 10 spacecraft",
     "era": "May 1969",
     "accent": "#ffcf8f",
-    "tagline": "In every way except an actual landing, I was a full rehearsal for Apollo 11.",
+    "tagline": "In every way except an actual landing, a full rehearsal for Apollo 11.",
     "star": {"x": 10, "y": 45, "radius": 3.8},
     "pages": [
         {
-            "title": "My Identity and Beginning",
+            "title": "A Spacecraft Built for the Moon",
             "body": [
                 "I am Apollo 10, a crewed Apollo spacecraft that flew around the Moon in May 1969. NASA's Office of Manned Space Flight developed and operated me as the second Apollo mission to orbit the Moon - and the first to travel there with the complete Apollo spacecraft: the Command and Service Module, called Charlie Brown, and the Lunar Module, called Snoopy.",
                 "My main job was to prove that the crew, space vehicle, and mission-support systems could work together during a lunar mission. I was also meant to test the Lunar Module in the space between Earth and the Moon and in lunar orbit. In every way except an actual landing, I was a full rehearsal for Apollo 11.",
             ],
         },
         {
-            "title": "My Design and Journey",
+            "title": "My Journey",
             "body": [
                 "I carried three astronauts: Commander Thomas P. Stafford, Command Module Pilot John W. Young, and Lunar Module Pilot Eugene A. Cernan. My Command and Service Module, Charlie Brown, had a mass of 28,834 kg including propellants and expendables; Snoopy, the Lunar Module, had a mass of 13,941 kg including propellants.",
                 "I launched from Cape Kennedy (now Cape Canaveral), United States, at 16:49:00 UT on 18 May 1969 aboard a Saturn 5 rocket. After entering Earth orbit, I left for the Moon. In space, Charlie Brown separated from the rocket's third stage, turned around, and docked with Snoopy. After a three-day cruise, I entered lunar orbit on 21 May 1969.",
             ],
         },
         {
-            "title": "My Discoveries and Experiences",
+            "title": "Discoveries on Lunar Surface",
             "body": [
                 "On 22 May, Stafford and Cernan entered Snoopy and separated it from Charlie Brown. Snoopy flew in an orbit that brought it as close as 14 km above the Moon's surface. During separation, its communications, propulsion, attitude control, and radar systems were tested.",
                 "Snoopy and Charlie Brown took many close-up photographs of the lunar surface, especially the planned Apollo landing sites. Television images were also taken and sent to Earth. The Lunar Module's descent stage was released into lunar orbit and was expected to strike the Moon later in 1969, though its impact location was unknown. Snoopy rejoined and redocked with Charlie Brown eight hours after separation.",

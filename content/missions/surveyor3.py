@@ -32,7 +32,7 @@ MISSION = {
             "title": "My Mission and Legacy",
             "body": [
                 "My last data reached Earth on 4 May 1967. After the two-week lunar night, I did not come back to life. Still, all of my mission objectives were accomplished. Some of my images contained excessive glare, which was later attributed to dust or erosion effects on a mirror caused by landing while the engines were still firing.",
-                "My story did not end there. On 19 November 1969, the Apollo 12 Lunar Module landed within about 180 meters of me. Astronauts Pete Conrad and Alan Bean visited me during their second moonwalk, photographed me and my surroundings, and removed about 10 kilograms of parts, including my television camera, for study on Earth. That camera is now displayed at the Smithsonian National Air and Space Museum in Chantilly, Virginia. I remain an important link between robotic lunar exploration and the first crewed Apollo landings.",
+                "My story did not end there. On 19 November 1969, the Apollo 12 Lunar Module landed within about 180 meters of me. Astronauts Pete Conrad and Alan Bean visited me during their second moonwalk, photographed me and my surroundings, and removed about 10 kilograms of parts, including my television camera, for study on Earth. That camera is now displayed at the Smithsonian National Air and Space Museum in Washington, D.C. while some other parts are displayed at the Steven F. Udvar-Hazy Center in Chantilly, Virginia. I remain an important link between robotic lunar exploration and the first crewed Apollo landings.",
             ],
         },
         {

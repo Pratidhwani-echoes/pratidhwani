@@ -4,11 +4,11 @@ MISSION = {
     "artifact": "NASA spacecraft",
     "era": "1977 - still sending some signals",
     "accent": "#7fe3ff",
-    "tagline": "I helped humans study the giant planets and the space beyond them.",
+    "tagline": "A spacecraft that keeps measuring the space beyond the ringed planet",
     "star": {"x": 45, "y": 43, "radius": 3.4},
     "pages": [
         {
-            "title": "My Identity and Beginning",
+            "title": "A Mission That Grew Smaller, but Reached Farther",
             "body": [
                 "I am Voyager 1, a NASA spacecraft built to explore the outer solar system and the space between planets. I launched from Cape Canaveral, United States, on 5 September 1977 aboard a Titan IIIE-Centaur rocket. I was one of two Voyager spacecraft, funded by NASA’s Office of Space Science Applications.",
                 "My mission began as a much larger plan called the “Grand Tour,” which would have sent spacecraft to Jupiter, Saturn, Pluto, Uranus, and Neptune. Budget limits changed that plan. Instead, two spacecraft would visit Jupiter and Saturn. The project was first named Mariner Jupiter/Saturn, then renamed Voyager about six months before launch.",
@@ -16,7 +16,7 @@ MISSION = {
             ],
         },
         {
-            "title": "My Design and Journey",
+            "title": "A Body Built for Distance",
             "body": [
                 "My body was a decahedral bus, 47 centimetres tall and 1.78 metres across. On top sat a 3.66-metre parabolic high-gain antenna for communicating with Earth. Most science instruments were on a boom extending 2.5 metres from me. At its end, a steerable scan platform carried imaging and spectroscopic instruments; plasma and charged-particle detectors were also mounted along the boom.",
                 "A separate 13-metre boom held my magnetometers. Three radioisotope thermoelectric generators, or RTGs, provided power. They used decaying plutonium-238 to produce heat, which was converted into electricity. At launch, they produced about 470 watts, but their output slowly declined.",
@@ -25,7 +25,7 @@ MISSION = {
             ],
         },
         {
-            "title": "My Discoveries and Experiences",
+            "title": "Jupiter to Rings of Saturn",
             "body": [
                 "I reached Jupiter for my closest approach on 5 March 1979. There, I took about 18,000 images of Jupiter and its satellites. I also studied the interplanetary medium before and after the encounter.",
                 "My next major destination was Saturn, where I made my closest approach on 12 November 1980. Around Saturn, I obtained roughly 16,000 images of the planet, its rings, and its satellites. My instruments investigated Saturn’s atmosphere, moons, rings, magnetic field, and the charged particles and plasma around it.",
@@ -34,7 +34,7 @@ MISSION = {
             ],
         },
         {
-            "title": "My Mission and Legacy",
+            "title": "How I Stayed Unforgettable",
             "body": [
                 "In 1989, after Voyager 2’s Neptune encounter, NASA renamed my continuing journey the Voyager Interstellar Mission. I kept measuring the interplanetary magnetic field, plasma, and charged particles while searching for the heliopause—the boundary where the solar wind is overtaken by the interstellar wind.",
                 "I travelled outward at about 3.50 astronomical units per year. Today, I'm nearly one light-day from the earth and I am the farthest human-made object from the Sun. Late on 17 February 1998, I became the most distant human-made object from the Sun, passing Pioneer 10.",

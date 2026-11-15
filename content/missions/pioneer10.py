@@ -4,11 +4,11 @@ MISSION = {
     "artifact": "NASA robotic spacecraft",
     "era": "1972 - 2003",
     "accent": "#ffcf8f",
-    "tagline": "I was the first mission sent to the outer solar system and the first spacecraft sent to investigate Jupiter.",
+    "tagline": "The first spacecraft that crossed the asteroid belt",
     "star": {"x": 75, "y": 57, "radius": 3.4},
     "pages": [
         {
-            "title": "The first mission sent to the outer solar system",
+            "title": "The Explorer Going Towards Deep Space space",
             "body": [
                 "I am Pioneer 10, a NASA robotic spacecraft launched on 3 March 1972 from Cape Kennedy (now Cape Canaveral) aboard an Atlas-Centaur rocket. I was the first mission sent to the outer solar system and the first spacecraft sent to investigate Jupiter.",
                 "My mission was designed to study the space between planets and to explore Jupiter, the solar system’s largest planet. I carried more than 15 experiments to measure magnetic fields, solar wind, cosmic rays, dust, Jupiter’s atmosphere, aurorae, radio waves, and some of its moons, especially Io.",
@@ -16,7 +16,7 @@ MISSION = {
             ],
         },
         {
-            "title": "My body was a flat, 36-centimetre-deep equipment compartment shaped like a hexagon",
+            "title": "A Small Spacecraft Built for a Giant Journey",
             "body": [
                 "My body was a flat, 36-centimetre-deep equipment compartment shaped like a hexagon, with sides 71 centimetres long. A 2.74-metre parabolic dish antenna protected my body and sent my signals toward Earth. I weighed 258 kilograms.",
                 "Four SNAP-19 radioisotope thermoelectric generators supplied my power, producing about 155 watts at launch. A 6.6-metre boom held my magnetometer away from my body. I carried a plasma analyzer (An instrument that studies charged gases made of ions and electrons), charged-particle detector, ultraviolet photometer, infrared radiometer, and an imaging photopolarimeter that took photographs and measured polarization.",
@@ -24,7 +24,7 @@ MISSION = {
             ],
         },
         {
-            "title": "I travelled outward for 21 months before reaching Jupiter",
+            "title": "Close Encounters with Jupiter and Beyond",
             "body": [
                 "I travelled outward for 21 months before reaching Jupiter on 4 December 1973. At closest approach, I passed about 2.8 Jovian radii from the planet—roughly 200,000 kilometres away. My instruments recorded Jupiter’s magnetic fields, charged particles, radiation, aurorae, and radio waves.",
                 "My imaging photopolarimeter photographed Jupiter and some of its satellites, while other instruments studied Jupiter’s atmosphere and Io. Scientists also used my tracking and occultation data to learn more about Jupiter and the space around it.",
@@ -32,7 +32,7 @@ MISSION = {
             ],
         },
         {
-            "title": "My long journey faced many challenges",
+            "title": "A Message That Travels Toward the Stars",
             "body": [
                 "My long journey faced many challenges. My Asteroid/Meteoroid Detector failed in December 1973, followed by the infrared radiometer in January 1974 and the magnetometer in November 1975. As my radioisotope generators (A power source that converts heat from radioactive material into electricity) produced less power, some instruments were switched off permanently and others operated only part of the time.",
                 "Routine tracking and project data processing ended on 31 March 1997 because of budget limits. Occasional tracking continued, and my last successful data were received on 3 March and 27 April 2002. A final signal was detected on 23 January 2003, but my power had become too low to operate the transmitter.",

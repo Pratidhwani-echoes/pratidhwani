@@ -4,32 +4,32 @@ MISSION = {
     "artifact": "Explorer-class spacecraft",
     "era": "1978 - 1997",
     "accent": "#ff9aa8",
-    "tagline": "I was the first spacecraft to use a halo orbit.",
+    "tagline": "Chasing the Tails of Two Comets.",
     "star": {"x": 55, "y": 57, "radius": 3.2},
     "pages": [
         {
-            "title": "My Identity and Beginning",
+            "title": "My Beginning",
             "body": [
                 "I am ISEE 3, an Explorer-class spacecraft built for the International Sun-Earth Explorer mission. NASA launched me from Cape Canaveral on August 12, 1978, aboard a Delta rocket. I weighed 390 kilograms and carried instruments to measure plasmas, energetic particles, waves, and fields.",
                 "I was part of a three-spacecraft team: ISEE 1, ISEE 2, and me. Together, we studied how the Sun and Earth interact. My tasks were to investigate the outer boundary of Earth’s magnetosphere, examine the solar wind and its shock wave near Earth, study plasma sheets, and continue observations of cosmic rays and solar-flare emissions near 1 AU.",
             ],
         },
         {
-            "title": "My Design and Journey",
+            "title": "My Shape, Spin, and Halo Orbit",
             "body": [
                 "My spin axis pointed perpendicular to the ecliptic plane, and I spun at about 20 revolutions per minute. I carried complementary instruments that worked alongside those on ISEE 1 and ISEE 2. Because the three spacecraft observed from different places, scientists could separate changes caused by location from changes that occurred over time.",
                 "I first traveled to a halo orbit around the Sun-Earth L1 point, about 235 Earth radii toward the Sun. There, I continuously watched the near-Earth interplanetary medium. I was the first spacecraft to use a halo orbit. My data also gave scientists a near-Earth baseline for comparing cosmic-ray and planetary measurements with those from deep-space probes.",
             ],
         },
         {
-            "title": "My Discoveries and Experiences",
+            "title": "From Earth’s Magnetotail to a Comet’s Tail",
             "body": [
                 "In 1982, my mission changed. A maneuver on June 10 moved me away from L1 and sent me through passages between Earth and the L2 magnetotail point. After several passes through Earth’s magnetotail, five lunar flybys reshaped my path. A final close flyby, 119.4 kilometers above the Moon on December 22, 1983, sent me out of the Earth-Moon system.",
                 "I then entered a heliocentric orbit ahead of Earth, on a course toward Comet Giacobini-Zinner. I was renamed the International Cometary Explorer, or ICE. Fifteen propulsive maneuvers—four planned—were needed for this transfer. My new main goal was to measure how the solar wind interacted with a comet’s atmosphere.",
             ],
         },
         {
-            "title": "My Mission and Legacy",
+            "title": "Two Comets, One Last Journey",
             "body": [
                 "On September 11, 1985, I flew through the plasma tail of Comet Giacobini-Zinner and directly measured particles, fields, and waves. In late March 1986, I traveled between the Sun and Comet Halley while other spacecraft were also studying Halley. I became the first spacecraft to directly investigate two comets.",
                 "My data rate gradually fell from 2,048 bits per second to 64 bits per second by 1991. In 1991, NASA approved a heliospheric mission for me, including studies of coronal mass ejections and cosmic rays. Operations ended when termination was authorized on May 5, 1997. My records remain part of the International Halley Watch archive.",

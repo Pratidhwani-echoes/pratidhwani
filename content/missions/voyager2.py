@@ -4,32 +4,32 @@ MISSION = {
     "artifact": "NASA spacecraft",
     "era": "1977 - still sending signals",
     "accent": "#b9a7ff",
-    "tagline": "I achieved my original planetary objectives and extended them far beyond them, becoming a lasting example of careful engineering, adaptation, and exploration.",
+    "tagline": "A traveller beyond the Planets",
     "star": {"x": 49, "y": 52, "radius": 3.4},
     "pages": [
         {
-            "title": "I am Voyager 2, a NASA spacecraft built to explore the outer planets",
+            "title": "I was born to explore outer planets",
             "body": [
                 "I am Voyager 2, a NASA spacecraft built to explore the outer planets and the space between them. I launched from Cape Canaveral, United States, on 20 August 1977 aboard a Titan IIIE-Centaur rocket. My mission began as the Mariner Jupiter/Saturn project, later renamed Voyager.",
                 "I was one of two Voyager spacecraft. Our main goals were to study planetary atmospheres, examine moons and rings, measure the sizes and masses of planets and their satellites, and investigate magnetic fields, plasma, and energetic trapped particles. I was also designed to preserve the possibility of visiting Uranus and Neptune.",
             ],
         },
         {
-            "title": "My body was a decahedral bus, 47 cm tall and 1.78 m across",
+            "title": "My Design",
             "body": [
                 "My body was a decahedral bus, 47 cm tall and 1.78 m across. A 3.66 m high-gain antenna sat above me, sending data to Earth. Instruments extended from a science boom, including imaging and spectroscopic instruments on a steerable scan platform, plus plasma and charged-particle detectors. Magnetometers sat on a separate 13 m boom.",
                 "Three radioisotope thermoelectric generators produced my electricity from heat released by decaying plutonium-238. At launch, they supplied about 470 W. Three interconnected computers let me operate largely on my own, because commands from Earth took a long time to reach me. I carried a gold-plated copper disk with images, greetings in 55 languages, sounds, and music from Earth.",
             ],
         },
         {
-            "title": "My journey was not always smooth",
+            "title": "My Views of Jupiter, Saturn, Uranus, and Neptune",
             "body": [
                 "My journey was not always smooth. Several months after launch, in April 1978, my primary radio receiver failed. Its backup receiver also proved faulty, but engineers found ways to communicate with me through it for the rest of the mission.",
                 "I flew past Jupiter on 9 July 1979 and Saturn on 26 August 1981, collecting about 18,000 images at Jupiter and 16,000 at Saturn. My launch path preserved the chance to continue outward. I then flew by Uranus on 24 January 1986 and Neptune on 25 August 1989, taking about 8,000 images at Uranus and about 10,000 at Neptune using improved software and image compression. All of my experiments produced useful data.",
             ],
         },
         {
-            "title": "After Neptune, NASA rechristened my mission the Voyager Interstellar Mission",
+            "title": "Final Chapters",
             "body": [
                 "After Neptune, NASA rechristened my mission the Voyager Interstellar Mission in 1989. I continued measuring the interplanetary magnetic field, plasma, and charged particles while searching for the heliopause—the region where the solar wind gives way to the interstellar wind.",
                 "My power output gradually declined as my plutonium-238 fuel decayed; by early 1997 it was about 335 W. Engineers reduced power loads so that limited instrument operations could continue. I travel away from the Sun at about 3.13 AU per year. I achieved my original planetary objectives and extended them far beyond them, becoming a lasting example of careful engineering, adaptation, and exploration.",
