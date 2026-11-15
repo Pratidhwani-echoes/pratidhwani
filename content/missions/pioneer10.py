@@ -3,7 +3,7 @@ MISSION = {
     "name": "Pioneer 10",
     "artifact": "NASA robotic spacecraft",
     "era": "1972 - 2003",
-    "accent": "#b9a7ff",
+    "accent": "#ffcf8f",
     "tagline": "I was the first mission sent to the outer solar system and the first spacecraft sent to investigate Jupiter.",
     "star": {"x": 75, "y": 57, "radius": 3.4},
     "pages": [
@@ -11,7 +11,7 @@ MISSION = {
             "title": "The first mission sent to the outer solar system",
             "body": [
                 "I am Pioneer 10, a NASA robotic spacecraft launched on 3 March 1972 from Cape Canaveral aboard an Atlas-Centaur rocket. I was the first mission sent to the outer solar system and the first spacecraft sent to investigate Jupiter.",
-                "My mission was designed to study the space between planets and to explore Jupiter, the solar system’s largest planet. I carried 15 experiments to measure magnetic fields, solar wind, cosmic rays, dust, Jupiter’s atmosphere, aurorae, radio waves, and some of its moons, especially Io.",
+                "My mission was designed to study the space between planets and to explore Jupiter, the solar system’s largest planet. I carried more than 15 experiments to measure magnetic fields, solar wind, cosmic rays, dust, Jupiter’s atmosphere, aurorae, radio waves, and some of its moons, especially Io.",
                 "I also carried instruments to photograph Jupiter and its satellites. Scientists wanted to understand the giant planet’s environment and learn what lay beyond the asteroid belt. My journey would take me farther from the Sun than any spacecraft had travelled before, helping open the outer solar system to robotic exploration.",
             ],
         },
@@ -48,10 +48,10 @@ MISSION = {
                 "Pioneer 10 continued travelling after its Jupiter encounter, but its power slowly declined. What does this show about the challenges of designing spacecraft for very long missions?",
             ],
             "facts": [
-                ("Launch", "3 March 1972 from Cape Canaveral aboard an Atlas-Centaur rocket."),
+                ("Launch", "2 March 1972 from Cape Canaveral aboard an Atlas-Centaur rocket."),
                 ("Firsts", "The first mission sent to the outer solar system and the first spacecraft to investigate Jupiter."),
-                ("Jupiter", "Reached on 4 December 1973, passing about 200,000 km from the planet."),
-                ("Experiments", "15 experiments studied magnetic fields, solar wind, cosmic rays, dust, Jupiter’s atmosphere, aurorae, radio waves, and moons."),
+                ("Jupiter", "Reached on 4 December 1973, passing about 132,000 km from the planet's surface."),
+                ("Experiments", "More than 15 experiments studied magnetic fields, solar wind, cosmic rays, dust, Jupiter’s atmosphere, aurorae, radio waves, and moons."),
                 ("Measurements", "Photographed Jupiter and its satellites and measured radiation, particles, and meteoroid impacts."),
                 ("Last signal", "Detected on 23 January 2003 after Pioneer 10 left the solar system."),
             ],

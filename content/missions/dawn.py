@@ -40,19 +40,42 @@ MISSION = {
                 "Dawn used gentle ion thrust over a long journey instead of relying only on conventional rocket fuel. What advantages and challenges might this create for a deep-space mission?",
             ],
             "facts": [
-                ("Destinations", "Designed to orbit the asteroids 4 Vesta and 1 Ceres."),
-                ("Selection and launch", "Selected as a Discovery mission in 2001; launched from Cape Canaveral on 27 September 2007 aboard a Delta II 7925 rocket."),
-                ("Propulsion", "Used solar-electric ion propulsion, accelerating ionized xenon to travel through deep space."),
-                ("Instruments", "Cameras, a mapping spectrometer, a laser altimeter, a gamma-ray/neutron spectrometer, and a magnetometer."),
-                ("Orbits", "Entered orbit around Vesta in 2011, studied it until September 2012, then entered orbit around Ceres in 2015."),
-                ("Communications", "The primary mission ended in June 2016; communications ceased on 31 October 2018, and the spacecraft remains in a stable orbit around Ceres."),
+                (
+                    "Destinations",
+                    "Designed to orbit the asteroids 4 Vesta and 1 Ceres.",
+                ),
+                (
+                    "Selection and launch",
+                    "Selected as a Discovery mission in 2001; launched from Cape Canaveral on 27 September 2007 aboard a Delta II 7925 rocket.",
+                ),
+                (
+                    "Propulsion",
+                    "Used solar-electric ion propulsion, accelerating ionized xenon to travel through deep space.",
+                ),
+                (
+                    "Instruments",
+                    "Cameras, a mapping spectrometer, a laser altimeter, a gamma-ray/neutron spectrometer, and a magnetometer.",
+                ),
+                (
+                    "Orbits",
+                    "Entered orbit around Vesta in 2011, studied it until September 2012, then entered orbit around Ceres in 2015.",
+                ),
+                (
+                    "Communications",
+                    "The primary mission ended in June 2016; communications ceased on 31 October 2018, and the spacecraft remains in a stable orbit around Ceres.",
+                ),
             ],
         },
     ],
     "quiz": [
         {
             "q": "What were Dawn’s two main destinations?",
-            "options": ["Mars and Venus", "Vesta and Ceres", "The Moon and Mercury", "Jupiter and Saturn"],
+            "options": [
+                "Mars and Venus",
+                "Vesta and Ceres",
+                "The Moon and Mercury",
+                "Jupiter and Saturn",
+            ],
             "answer": 2,
             "why": "Dawn was designed to rendezvous with and orbit both asteroids.",
         },
@@ -64,19 +87,34 @@ MISSION = {
         },
         {
             "q": "How did Dawn change its course during its journey to the asteroid belt?",
-            "options": ["It used a Mars gravity assist", "It landed on Mars", "It used Jupiter’s gravity", "It refuelled at Vesta"],
+            "options": [
+                "It used a Mars gravity assist",
+                "It landed on Mars",
+                "It used Jupiter’s gravity",
+                "It refuelled at Vesta",
+            ],
             "answer": 1,
             "why": "Dawn passed within 542 kilometres of Mars in 2009.",
         },
         {
             "q": "Which instrument measured surface heights on Vesta and Ceres?",
-            "options": ["The high-gain antenna", "The laser altimeter", "The xenon tank", "The solar array"],
+            "options": [
+                "The high-gain antenna",
+                "The laser altimeter",
+                "The xenon tank",
+                "The solar array",
+            ],
             "answer": 2,
             "why": "The laser altimeter provided topographic profiles, or surface-height measurements.",
         },
         {
             "q": "What happened to Dawn after its primary mission ended in 2016?",
-            "options": ["It returned to Earth", "It landed on Ceres", "It remained in orbit around Ceres", "It travelled to another asteroid"],
+            "options": [
+                "It returned to Earth",
+                "It landed on Ceres",
+                "It remained in orbit around Ceres",
+                "It travelled to another asteroid",
+            ],
             "answer": 3,
             "why": "Communications ended in 2018, but Dawn’s final orbit is expected to remain stable for hundreds of years.",
         },

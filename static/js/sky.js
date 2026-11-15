@@ -238,12 +238,26 @@
       }
     });
 
-    // Check remembered state across page transitions
+    // Start music by default, while respecting an explicit mute preference.
     const savedState = localStorage.getItem(STORAGE_KEY);
-    if (savedState === "playing") {
+    if (savedState !== "muted") {
       playBgm();
-      const resumeOnGesture = () => {
-        if (localStorage.getItem(STORAGE_KEY) === "playing" && bgm.paused) {
+      const resumeOnGesture = (event) => {
+        const onAudioToggle =
+          event &&
+          event.target instanceof Node &&
+          audioToggle.contains(event.target);
+        const activatesAudioToggle =
+          onAudioToggle &&
+          (event.type === "pointerdown" ||
+            (event.type === "keydown" &&
+              (event.key === "Enter" || event.key === " ")));
+
+        if (
+          !activatesAudioToggle &&
+          localStorage.getItem(STORAGE_KEY) !== "muted" &&
+          bgm.paused
+        ) {
           playBgm();
         }
         window.removeEventListener("pointerdown", resumeOnGesture);

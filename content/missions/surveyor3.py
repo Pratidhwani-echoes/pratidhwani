@@ -10,7 +10,7 @@ MISSION = {
         {
             "title": "My main job was to help the upcoming Apollo missions",
             "body": [
-                "I am Surveyor 3, a robotic spacecraft built by NASA to prepare the way for people on the Moon. I was part of the Surveyor program, a series of seven missions designed to make soft landings on the lunar surface. My mission began on 17 April 1967, when I launched from Cape Canaveral, United States, aboard an Atlas-Centaur rocket.",
+                "I am Surveyor 3, a robotic spacecraft built by NASA to prepare the way for people on the Moon. I was part of the Surveyor program, a series of seven missions designed to make soft landings on the lunar surface. My mission began on 17 April 1967, when I launched from Cape Kennedy (now known as Cape Canaveral), United States, aboard an Atlas-Centaur rocket.",
                 "My main job was to help the upcoming Apollo missions. I needed to prove that a spacecraft could land gently on the Moon, test whether Apollo designs would work on the lunar surface, and add to what scientists knew about the Moon. I was also meant to land within the Apollo zone, east of Surveyor 1’s landing site. Once there, I would photograph the ground, measure its strength and temperature, and use a mechanical arm to move lunar soil.",
             ],
         },
@@ -31,8 +31,8 @@ MISSION = {
         {
             "title": "My Mission and Legacy",
             "body": [
-                "My last data reached Earth on 4 May 1967. After the two-week lunar night, I did not come back to life. Still, all of my mission objectives were accomplished. Some of my images contained excessive glare, which was later attributed to dust or erosion effects on a mirror caused by my engines operating for a long time during touchdown.",
-                "My story did not end there. On 19 November 1969, the Apollo 12 Lunar Module landed within about 180 meters of me. Astronauts Pete Conrad and Alan Bean visited me during their second moonwalk, photographed me and my surroundings, and removed about 10 kilograms of parts, including my television camera, for study on Earth. That camera is now displayed at the Smithsonian National Air and Space Museum in Washington, D.C. I remain an important link between robotic lunar exploration and the first crewed Apollo landings.",
+                "My last data reached Earth on 4 May 1967. After the two-week lunar night, I did not come back to life. Still, all of my mission objectives were accomplished. Some of my images contained excessive glare, which was later attributed to dust or erosion effects on a mirror caused by landing while the engines were still firing.",
+                "My story did not end there. On 19 November 1969, the Apollo 12 Lunar Module landed within about 180 meters of me. Astronauts Pete Conrad and Alan Bean visited me during their second moonwalk, photographed me and my surroundings, and removed about 10 kilograms of parts, including my television camera, for study on Earth. That camera is now displayed at the Smithsonian National Air and Space Museum in Chantilly, Virginia. I remain an important link between robotic lunar exploration and the first crewed Apollo landings.",
             ],
         },
         {
@@ -45,7 +45,7 @@ MISSION = {
             ],
             "facts": [
                 ("Soft landing", "The second Surveyor spacecraft to achieve a soft landing on the Moon."),
-                ("Launch", "17 April 1967 from Cape Canaveral aboard an Atlas-Centaur rocket."),
+                ("Launch", "17 April 1967 from Cape Kennedy aboard an Atlas-Centaur rocket."),
                 ("Mission", "Supported Apollo by testing lunar-landing technology and studying conditions on the lunar surface."),
                 ("Landing", "20 April 1967 in southeast Oceanus Procellarum, inside a subdued 200-meter crater."),
                 ("Pictures and sampling", "Returned 6,326 television pictures and dug trenches as deep as 18 centimeters."),

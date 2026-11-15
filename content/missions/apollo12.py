@@ -10,7 +10,7 @@ MISSION = {
         {
             "title": "Identity and beginning",
             "body": [
-                "I am Intrepid, the Apollo 12 Lunar Module, a two-stage spacecraft built by NASA to carry astronauts to the Moon’s surface. I launched from Cape Canaveral, United States, on 14 November 1969 aboard a Saturn 5 rocket."
+                "I am Intrepid, the Apollo 12 Lunar Module, a two-stage spacecraft built by NASA to carry astronauts to the Moon’s surface. I launched from Cape Kennedy (now Cape Canaveral), United States, on 14 November 1969 aboard a Saturn 5 rocket."
                 "I was the second crewed vehicle to land on the Moon. I carried Commander Charles P. “Pete” Conrad and Lunar Module pilot Alan L. Bean, the third and fourth people to walk on the Moon. My mission was to land safely, support lunar exploration, and leave behind the Apollo Lunar Surface Experiments Package, or ALSEP: scientific instruments designed to study the Moon after my crew returned home. I also carried equipment for collecting Moon rocks, soil, photographs, and other scientific samples."
             ],
         },
@@ -33,9 +33,9 @@ MISSION = {
         {
             "title": "Mission",
             "body": [
-                "On the Moon, Conrad and Bean made two Moon walks lasting 7 hours 45 minutes in total and travelling 1.35 kilometres. They deployed ALSEP around a central station, which used a SNAP-27 radioisotope thermoelectric generator powered by the heat from plutonium-238 to produce about 70 watts of electricity."
-                "ALSEP included a seismometer, ion detectors, a dust detector, a magnetometer, and a solar-wind spectrometer. These instruments measured moonquakes, low-energy ions, the thin lunar atmosphere, dust and radiation effects, magnetic fields, and electrons and protons arriving from the Sun. Their measurements were sent to Earth by radio."
-                "The astronauts also collected 34.35 kilograms of rock and soil, photographed the surface, studied soil properties, and deployed a solar-wind composition foil collector. They visited Surveyor 3 and brought back about 10 kilograms of its parts for examination on Earth."
+                "One challenge came when the television camera was accidentally pointed toward the Sun during setup; its vidicon tube was damaged, and the camera stopped working. Even so, the mission continued successfully."
+                "After 31 hours 31 minutes on the Moon, my ascent stage lifted off on 20 November at 14:25:47 UT. Conrad and Bean docked with the Command/Service Module, piloted by Richard F. Gordon Jr., at 17:58:22 UT. My ascent stage was then jettisoned and intentionally crashed into the Moon about 65 kilometres from the Apollo 12 seismic station, creating the first recorded artificial moonquake."
+                "My descent stage remains on the Moon. ALSEP operated until 30 September 1977, providing long-term lunar measurements and helping scientists study the Moon’s interior, surface environment, and surroundings."
             ],
         },
         {
@@ -52,7 +52,7 @@ MISSION = {
                 ("Lander", "Intrepid"),
                 ("Landing", "19 November 1969, Oceanus Procellarum"),
                 ("Astronauts", "Pete Conrad, Alan Bean"),
-                ("Launch", "14 November 1969, Saturn V. Cape Canaveral"),
+                ("Launch", "14 November 1969, Saturn V. Cape Kennedy"),
                 (
                     "Near",
                     "180 metres from Surveyor 3",

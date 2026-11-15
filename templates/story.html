@@ -57,6 +57,9 @@
   </aside>
 
   <article class="story-card glass">
+    {% if story_image %}
+    <img class="story-image" src="{{ url_for('static', filename='img/artifacts/' ~ story_image) }}" alt="{{ page.image_alt|default(mission.artifact) }}">
+    {% endif %}
     <p class="kicker">{% if page.overview %}Overview{% else %}The artifact speaks · {{ mission.artifact }}{% endif %}</p>
     <h2 class="story-title">{{ page.title }}</h2>
 

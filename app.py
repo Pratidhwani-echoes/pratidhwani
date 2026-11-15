@@ -23,11 +23,13 @@ MASCOT_FILE = BASE_DIR / "static" / "img" / "ananta-wave.webp"
 PASS_MARK = 4
 
 COMPANION = {
-    "welcome": (
-        "Welcome to Pratidhwani. Many missions were abandoned by the National Aeronautics and Space Administration (NASA). "
+    "welcome": [
+        "Welcome to Pratidhwani. Humans have always looked to the stars for inspiration and guidance. And with time, we have learned to reach for them.",
+        "From the past few decades, the National Aeronautics and Space Administration (NASA) has been the global pioneer in space exploration. "
+        "In its long path of discovery and innovation, many pieces of space hardware and equipment were left behind on the Moon, Mars and beyond.",
         "Though they are not currently active, their contributions towards expanding our understanding of the Solar system and "
-        "the Universe must never be forgotten. This museum is dedicated to those missions and the people who worked on them."
-    ),
+        "the Universe must never be forgotten. This museum is dedicated to those missions and the efforts of brilliant people who worked on them."
+    ],
     "story": [
         "Listen carefully. These machines are the reason we can reach for the stars today.",
         "Every number here was paid for twice: once in money, once in years.",
@@ -38,7 +40,7 @@ COMPANION = {
     "quiz": "No pressure. Four right and this star joins the sky.",
     "pass": "You did it! Look up - a new star is lit.",
     "fail": "Not quite there yet. Walk back through the story and try again; the star will wait.",
-    "complete": "All eight stars are lit! You have finished this museum, but the sky has many more stars and more stories."
+    "complete": "All eight stars are lit! You have finished this museum, but the sky has many more stars and more stories. "
     "Keep looking up and stay curious. The stories are yours to revisit whenever you like.",
 }
 
@@ -171,10 +173,13 @@ def artifact_page(slug, page_number):
 
     page = pages[page_number - 1]
     lines = COMPANION["story"]
+    image_filename = f"{slug}-page-{page_number}.webp"
+    image_path = BASE_DIR / "static" / "img" / "artifacts" / image_filename
     return render_template(
         "story.html",
         mission=mission,
         page=page,
+        story_image=image_filename if image_path.is_file() else None,
         number=page_number,
         total=len(pages),
         is_last=page_number == len(pages),

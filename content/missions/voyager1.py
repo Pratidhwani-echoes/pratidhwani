@@ -37,7 +37,7 @@ MISSION = {
             "title": "My Mission and Legacy",
             "body": [
                 "In 1989, after Voyager 2’s Neptune encounter, NASA renamed my continuing journey the Voyager Interstellar Mission. I kept measuring the interplanetary magnetic field, plasma, and charged particles while searching for the heliopause—the boundary where the solar wind is overtaken by the interstellar wind.",
-                "I travelled outward at about 3.50 astronomical units per year. Late on 17 February 1998, I became the most distant human-made object from the Sun, passing Pioneer 10.",
+                "I travelled outward at about 3.50 astronomical units per year. Today, I'm nearly one light-day from the earth and I am the farthest human-made object from the Sun. Late on 17 February 1998, I became the most distant human-made object from the Sun, passing Pioneer 10.",
                 "My power decreased as my RTGs aged: by early 1997, their output had fallen to about 335 watts. To conserve energy, spacecraft loads had to be reduced. A 1998 estimate said limited instrument operations could continue at least until 2020. My cameras were turned off after the 1990 family portrait.",
                 "Through the Neptune phase of the Voyager project, construction, launch, and operations for both Voyagers cost $875 million; $30 million more was allocated for the first two years of the Interstellar Mission. I helped humans study the giant planets and the space beyond them.",
             ],
