@@ -18,7 +18,7 @@ MISSION = {
             "title": "My Design and Journey",
             "body": [
                 "I carried three astronauts: Commander Thomas P. Stafford, Command Module Pilot John W. Young, and Lunar Module Pilot Eugene A. Cernan. My Command and Service Module, Charlie Brown, had a mass of 28,834 kg including propellants and expendables; Snoopy, the Lunar Module, had a mass of 13,941 kg including propellants.",
-                "I launched from Cape Canaveral, United States, at 16:49:00 UT on 18 May 1969 aboard a Saturn 5 rocket. After entering Earth orbit, I left for the Moon. In space, Charlie Brown separated from the rocket's third stage, turned around, and docked with Snoopy. After a three-day cruise, I entered lunar orbit on 21 May 1969.",
+                "I launched from Cape Kennedy (now Cape Canaveral), United States, at 16:49:00 UT on 18 May 1969 aboard a Saturn 5 rocket. After entering Earth orbit, I left for the Moon. In space, Charlie Brown separated from the rocket's third stage, turned around, and docked with Snoopy. After a three-day cruise, I entered lunar orbit on 21 May 1969.",
             ],
         },
         {
@@ -46,7 +46,7 @@ MISSION = {
             "facts": [
                 ("Mission", "The first Apollo mission to travel to the Moon with both the Command and Service Module and the Lunar Module."),
                 ("Funding agency", "NASA's Office of Manned Space Flight."),
-                ("Launch", "18 May 1969 from Cape Canaveral aboard a Saturn 5 rocket."),
+                ("Launch", "18 May 1969 from Cape Kennedy aboard a Saturn 5 rocket."),
                 ("Crew", "Thomas P. Stafford, John W. Young, and Eugene A. Cernan."),
             ],
         },

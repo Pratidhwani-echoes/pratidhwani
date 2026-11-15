@@ -10,7 +10,7 @@ MISSION = {
         {
             "title": "The first mission sent to the outer solar system",
             "body": [
-                "I am Pioneer 10, a NASA robotic spacecraft launched on 3 March 1972 from Cape Canaveral aboard an Atlas-Centaur rocket. I was the first mission sent to the outer solar system and the first spacecraft sent to investigate Jupiter.",
+                "I am Pioneer 10, a NASA robotic spacecraft launched on 3 March 1972 from Cape Kennedy (now Cape Canaveral) aboard an Atlas-Centaur rocket. I was the first mission sent to the outer solar system and the first spacecraft sent to investigate Jupiter.",
                 "My mission was designed to study the space between planets and to explore Jupiter, the solar system’s largest planet. I carried more than 15 experiments to measure magnetic fields, solar wind, cosmic rays, dust, Jupiter’s atmosphere, aurorae, radio waves, and some of its moons, especially Io.",
                 "I also carried instruments to photograph Jupiter and its satellites. Scientists wanted to understand the giant planet’s environment and learn what lay beyond the asteroid belt. My journey would take me farther from the Sun than any spacecraft had travelled before, helping open the outer solar system to robotic exploration.",
             ],
@@ -48,7 +48,7 @@ MISSION = {
                 "Pioneer 10 continued travelling after its Jupiter encounter, but its power slowly declined. What does this show about the challenges of designing spacecraft for very long missions?",
             ],
             "facts": [
-                ("Launch", "2 March 1972 from Cape Canaveral aboard an Atlas-Centaur rocket."),
+                ("Launch", "2 March 1972 from Cape Kennedy aboard an Atlas-Centaur rocket."),
                 ("Firsts", "The first mission sent to the outer solar system and the first spacecraft to investigate Jupiter."),
                 ("Jupiter", "Reached on 4 December 1973, passing about 132,000 km from the planet's surface."),
                 ("Experiments", "More than 15 experiments studied magnetic fields, solar wind, cosmic rays, dust, Jupiter’s atmosphere, aurorae, radio waves, and moons."),
